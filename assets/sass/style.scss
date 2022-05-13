@@ -1,0 +1,131 @@
+@import "./_reset.scss";
+@import "./_functions.scss";
+@import "./_variables.scss";
+
+* {
+  font-family:'Open Sans', sans-serif;
+}
+
+.header {
+
+  &__informations-top {
+    @include flex();
+
+    background-color: $darkPurple;
+    box-sizing: border-box;
+    padding: 7px;
+
+    color: $white;
+    text-transform: uppercase;
+    font-size: calculator-rem(12);
+    line-height: calculator-rem(16);
+
+    &--text{
+      @include flex(center, flex-end);
+      font-weight: 300;
+      
+      &::before{
+        content: '';
+        width: 1px;
+        height: 12px;
+        background-color: $white;
+        display: inline-block;
+        margin: 0 5px;
+      }
+
+      &:first-child{
+        &::before{
+          display: none;
+        }
+      }
+    }
+
+    &--highlight {
+      font-weight: 700;
+      margin-left: 5px;
+
+      &:nth-child(3) {
+        margin-left: 0;
+        margin-right: 5px
+      }
+    }
+  }
+
+  &__informations-top-wrap {
+    @include flex(space-between);
+
+    // max-width: 559px;
+    
+
+    &::before, &::after {
+      content: '';
+      height: 10.8px;
+      width: 8.3px;
+      background-image: url(../img/arrow.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: block;
+      margin-right: 20px ;
+    }
+
+    &::after {
+      transform: rotate(180deg);
+      margin-right: 0;
+      margin-left: 20px;
+    }
+  }
+}
+
+.menu {
+  background-color: $purble;
+  box-sizing: border-box;
+  padding: 22px 110px;
+  
+
+  &__wrap {
+    @include flex(space-between);
+
+    margin: 0 auto;
+    max-width: 1210px;
+  }
+
+  &__logo-store {
+    font-family: 'Ovo', serif; 
+    font-size: calculator-rem(48);
+    line-height: calculator-rem(36);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $white;
+
+    flex-grow: 1;
+    flex-shrink: 0;
+    margin-right: 31px
+  }
+
+  &__nav {
+    @include flex(space-between);
+
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  &__nav-list {
+    @include flex(space-between);
+
+    max-width: 780px;
+    flex-grow: 1;
+
+    &--item {
+    font-size: calculator-rem(14);
+    line-height: calculator-rem(19);
+    font-weight: 700;
+    color: $white;
+    text-decoration: none;
+    }
+
+    &__nav--icon {
+      flex-grow: 1;
+    }
+  }
+}
+

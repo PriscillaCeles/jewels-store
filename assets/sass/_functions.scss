@@ -1,0 +1,10 @@
+@function calculator-rem($font-size) {
+    $size: $font-size/16;
+    @return $size + rem;
+}
+
+@mixin flex($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
