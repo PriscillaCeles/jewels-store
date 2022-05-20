@@ -101,6 +101,7 @@
     }
   }
 
+  //** NAVEGATION MENU
 
   &__nav {
     @include flex(space-between);
@@ -124,28 +125,52 @@
     flex-grow: 1;
 
 
+
     &--item {
-    font-size: calculator-rem(14);
-    line-height: calculator-rem(19);
-    font-weight: 700;
-    color: $white;
-    text-decoration: none;
-    text-transform: uppercase;
+      font-size: calculator-rem(14);
+      line-height: calculator-rem(19);
+      font-weight: 700;
+      color: $white;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $darkGrey;
+        // .menu__nav-category-list {
+        //   display: block;
+        // }
+      }
     }
   }
 
-  &__nav-wrapper--category {
+  //** CATEGORIES AND SUBCATEGORIES
+
+  &__nav-wrapper-category {
+    // display: none;
     position: absolute;
     top: 100%;
-    left: -50%;
+    left: 0;
 
     text-transform:none;
-    background: $white;
+    background-color: $white;
+    max-width: 240px;
     width: 194px;
 
     border-top: 6px solid $darkPurple;
 
     box-shadow: 2px 2px 5px $grey;
+
+    &--color {
+      background-color: $purble;
+      min-width: 240px;
+    }
+  }
+
+  &__nav-wrapper-subcategory {
+    top: -115%;
+    left: 100%;
+    z-index: 1;
+
   }
 
   &__nav-category-list {
@@ -163,7 +188,17 @@
     &:hover {
       background-color: $lightGrey;
     }
+
+    &--color {
+      color: $white;
+
+      &:hover {
+        background-color: $darkPurple;
+      }
+    }
   }
+
+  //** ICONS
 
   &__icon {
     @include flex(space-between);

@@ -3,6 +3,8 @@
     { 
       "name": "Água Marinha",
       "url": "/aguaMarina",
+      "category": true,
+      "subcategory": false,
       "children": [
         {
           "name": "Água Marinha - Incolor",
@@ -20,23 +22,33 @@
     },  
     {
       "name": "Ametista",
-      "url": "/ametista"
+      "url": "/ametista",
+      "category": false,
+      "subcategory": false
     },
     {
       "name": "Birilo",
-      "url": "/birilo"
+      "url": "/birilo",
+      "category": false,
+      "subcategory": false
     },
     {
       "name": "Esmeralda",
-      "url": "/esmeralda"
+      "url": "/esmeralda",
+      "category": false,
+      "subcategory": false
     },
     {
       "name": "Tópazio Imperial",
-      "url": "/esmeralda"
+      "url": "/esmeralda",
+      "category": false,
+      "subcategory": false
     },
     {
       "name": "Turmalina",
       "url": "/turmalina",
+      "category": true,
+      "subcategory": true,
       "children": [
         {
           "name": "Turmalina - Verde Água",
@@ -109,7 +121,8 @@
     {
       "name": "Outros",
       "url": "/Outros",
-
+      "category": true,
+      "subcategory": false,
       "children": [
         {
           "name": "Safira",
