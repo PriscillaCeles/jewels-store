@@ -1,0 +1,161 @@
+{
+  "menu": [
+    { 
+      "name": "Água Marinha",
+      "url": "/aguaMarina",
+      "children": [
+        {
+          "name": "Água Marinha - Incolor",
+          "url": "/incolor"
+        },
+        {
+          "name": "Água Marinha - Azul",
+          "url": "/incolor"
+        },
+        {
+          "name": "Água Marinha - Verde",
+          "url": "/incolor"
+        }
+      ]
+    },  
+    {
+      "name": "Ametista",
+      "url": "/ametista"
+    },
+    {
+      "name": "Birilo",
+      "url": "/birilo"
+    },
+    {
+      "name": "Esmeralda",
+      "url": "/esmeralda"
+    },
+    {
+      "name": "Tópazio Imperial",
+      "url": "/esmeralda"
+    },
+    {
+      "name": "Turmalina",
+      "url": "/turmalina",
+      "children": [
+        {
+          "name": "Turmalina - Verde Água",
+          "url": "/turmalina-verde-agua"
+        },
+        {
+          "name": "Turmalina - Verde",
+          "url": "turmalina-verde",
+          "children": [
+            {
+              "name": "Turmalina - Amarela",
+              "url": "/turmalina-amarela"
+            },
+            {
+              "name": "Turmalina - Azul",
+              "url": "/turmalina-azul"
+            },
+            {
+              "name": "Turmalina - Bicolor",
+              "url": "/turmalina-bicolor"
+            },
+            {
+              "name": "Turmalina - Furta Cor",
+              "url": "/turmalina-furtacor"
+            },
+            {
+              "name": "Turmalina - Laranja",
+              "url": "/turmalina-laranja"
+            },
+            {
+              "name": "Turmalina - Rosa",
+              "url": "/turmalina-rosa"
+            },
+            {
+              "name": "Turmalina - Roxa",
+              "url": "/turmalina-roxa"
+            },
+            {
+              "name": "Turmalina - Rubelita",
+              "url": "/turmalina-rubelita"
+            },
+            {
+              "name": "Turmalina - Verde",
+              "url": "/turmalina-verde"
+            }
+          ]
+        },
+        {
+          "name": "Bandeira",
+          "url": "/bandeira"
+        },
+        {
+          "name": "Turmalina - Verde",
+          "url": "turmalina-verde"
+        },
+        {
+          "name": "Amarelado",
+          "url": "/amarelado"
+        },
+        {
+          "name": "Turmalina - Verde Pirineu",
+          "url": "/turmalina-verde-pirineu"
+        },
+        {
+          "name": "Ver todos",
+          "url": "/todos-turmalina"
+        }
+      ]
+    },
+    {
+      "name": "Outros",
+      "url": "/Outros",
+
+      "children": [
+        {
+          "name": "Safira",
+          "url": "/safira"
+        },
+        {
+          "name": "Citrino",
+          "url": "/citrino"
+        },
+        {
+          "name": "Peridoto",
+          "url": "/peridoto"
+        },
+        {
+          "name": "Topázio",
+          "url": "/topazio"
+        },
+        {
+          "name": "Milimetrados",
+          "url": "/milimetrados"
+        },
+        {
+          "name": "Riveira",
+          "url": "/riveira"
+        },
+        {
+          "name": "Lote",
+          "url": "/lote"
+        },
+        {
+          "name": "Earcuff",
+          "url": "/earcuff"
+        },
+        {
+          "name": "KIT",
+          "url": "/kit"
+        },
+        {
+          "name": "Lapidação Especial",
+          "url": "/lapidacao-especial"
+        },
+        {
+          "name": "Diamante(Em breve)",
+          "url": "/diamante"
+        }
+      ]
+    }
+  ]
+}

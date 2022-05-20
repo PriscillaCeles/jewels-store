@@ -1,14 +1,17 @@
 [
   {
     "text": "Em até",
-    "bold": "6x sem juros"
+    "bold": "6x sem juros",
+    "firstBoldType": false
   },
   {
     "text": "Entrega",
-    "bold": "segura"
+    "bold": "segura",
+    "firstBoldType": false
   },
   {
     "text": "5% de desconto",
-    "bold": "para transferência"
+    "bold": "para transferência",
+    "firstBoldType": true
   }
 ]

@@ -7,6 +7,7 @@
 }
 
 .header {
+  background-color: $purble;
 
   &__informations-top {
     @include flex();
@@ -24,30 +25,28 @@
       @include flex(center, flex-end);
       font-weight: 300;
       
-      &::before{
+      &::after{
         content: '';
         width: 1px;
         height: 12px;
         background-color: $white;
         display: inline-block;
-        margin: 0 5px;
-      }
 
-      &:first-child{
-        &::before{
-          display: none;
-        }
+        margin: 0 5px;
       }
     }
 
-    &--highlight {
+    &--text-highlight {
       font-weight: 700;
       margin-left: 5px;
 
       &:nth-child(3) {
         margin-left: 0;
-        margin-right: 5px
       }
+    }
+
+    &--text-margin {
+      font-weight: 300;
     }
   }
 
@@ -79,41 +78,51 @@
 .menu {
   background-color: $purble;
   box-sizing: border-box;
-  padding: 22px 110px;
-  
+  padding: 22px 0;
+  @include container-center();
+  @include flex();
 
-  &__wrap {
+  margin: 0 auto;
+  max-width: 1210px;
+  width: 100%;
+
+  &__logo {
     @include flex(space-between);
 
-    margin: 0 auto;
-    max-width: 1210px;
-  }
-
-  &__logo-store {
+    &--text {
     font-family: 'Ovo', serif; 
     font-size: calculator-rem(48);
     line-height: calculator-rem(36);
     font-weight: 400;
     text-transform: uppercase;
     color: $white;
-
-    flex-grow: 1;
-    flex-shrink: 0;
-    margin-right: 31px
+    text-decoration: none;
+    width: 238px;
+    }
   }
+
 
   &__nav {
     @include flex(space-between);
 
-    flex-grow: 1;
+    list-style-type: none;
+
     width: 100%;
+    margin: 0 31px;
+    flex: 1;
   }
 
-  &__nav-list {
+  &__nav-wrapper{
+    position: relative;
+  }
+
+  &__nav-department-list {
     @include flex(space-between);
+    
 
     max-width: 780px;
     flex-grow: 1;
+
 
     &--item {
     font-size: calculator-rem(14);
@@ -121,11 +130,46 @@
     font-weight: 700;
     color: $white;
     text-decoration: none;
+    text-transform: uppercase;
     }
+  }
 
-    &__nav--icon {
-      flex-grow: 1;
+  &__nav-wrapper--category {
+    position: absolute;
+    top: 100%;
+    left: -50%;
+
+    text-transform:none;
+    background: $white;
+    width: 194px;
+
+    border-top: 6px solid $darkPurple;
+
+    box-shadow: 2px 2px 5px $grey;
+  }
+
+  &__nav-category-list {
+    @include flex();
+
+    text-decoration: none;
+
+    color: $darkGrey;
+    font-weight: 400;
+    font-size: calculator-rem(13);
+    
+    width: 100%;
+    height: 40px;
+
+    &:hover {
+      background-color: $lightGrey;
     }
+  }
+
+  &__icon {
+    @include flex(space-between);
+    gap: 31px;
+    max-width: 135px;
+    width: 100%;
   }
 }
 

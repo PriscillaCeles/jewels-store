@@ -61,6 +61,10 @@ table {
   font-family: 'Open Sans', sans-serif;
 }
 
+.header {
+  background-color: #9A7AA0;
+}
+
 .header__informations-top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,7 +98,7 @@ table {
   font-weight: 300;
 }
 
-.header__informations-top--text::before {
+.header__informations-top--text::after {
   content: '';
   width: 1px;
   height: 12px;
@@ -103,18 +107,17 @@ table {
   margin: 0 5px;
 }
 
-.header__informations-top--text:first-child::before {
-  display: none;
-}
-
-.header__informations-top--highlight {
+.header__informations-top--text-highlight {
   font-weight: 700;
   margin-left: 5px;
 }
 
-.header__informations-top--highlight:nth-child(3) {
+.header__informations-top--text-highlight:nth-child(3) {
   margin-left: 0;
-  margin-right: 5px;
+}
+
+.header__informations-top--text-margin {
+  font-weight: 300;
 }
 
 .header__informations-top-wrap {
@@ -151,10 +154,30 @@ table {
   background-color: #9A7AA0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 22px 110px;
+  padding: 22px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  max-width: 1210px;
+  width: 100%;
 }
 
-.menu__wrap {
+@media (max-width: 1024px) {
+  .menu {
+    margin: 0 5%;
+  }
+}
+
+.menu__logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,23 +187,17 @@ table {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 auto;
-  max-width: 1210px;
 }
 
-.menu__logo-store {
+.menu__logo--text {
   font-family: 'Ovo', serif;
   font-size: 3rem;
   line-height: 2.25rem;
   font-weight: 400;
   text-transform: uppercase;
   color: #ffffff;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  margin-right: 31px;
+  text-decoration: none;
+  width: 238px;
 }
 
 .menu__nav {
@@ -193,13 +210,19 @@ table {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  list-style-type: none;
   width: 100%;
+  margin: 0 31px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
-.menu__nav-list {
+.menu__nav-wrapper {
+  position: relative;
+}
+
+.menu__nav-department-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -215,17 +238,61 @@ table {
           flex-grow: 1;
 }
 
-.menu__nav-list--item {
+.menu__nav-department-list--item {
   font-size: 0.875rem;
   line-height: 1.1875rem;
   font-weight: 700;
   color: #ffffff;
   text-decoration: none;
+  text-transform: uppercase;
 }
 
-.menu__nav-list__nav--icon {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.menu__nav-wrapper--category {
+  position: absolute;
+  top: 100%;
+  left: -50%;
+  text-transform: none;
+  background: #ffffff;
+  width: 194px;
+  border-top: 6px solid #614B65;
+  -webkit-box-shadow: 2px 2px 5px #C4C4C4;
+          box-shadow: 2px 2px 5px #C4C4C4;
+}
+
+.menu__nav-category-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: #302E2B;
+  font-weight: 400;
+  font-size: 0.8125rem;
+  width: 100%;
+  height: 40px;
+}
+
+.menu__nav-category-list:hover {
+  background-color: #F1F1F1;
+}
+
+.menu__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 31px;
+  max-width: 135px;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

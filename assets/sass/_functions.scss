@@ -8,3 +8,12 @@
     justify-content: $justify;
     align-items: $align;
 }
+
+@mixin container-center($max-width: 1200px) {
+    max-width: $max-width;
+    margin: 0 auto;
+
+    @media (max-width: 1024px) {
+        margin: 0 5%;
+    }
+}
