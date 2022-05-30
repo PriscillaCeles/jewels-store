@@ -13,7 +13,16 @@
     max-width: $max-width;
     margin: 0 auto;
 
+
     @media (max-width: 1024px) {
-        margin: 0 5%;
+        margin: 0 auto;
+
     }
+}
+
+@mixin media-mobile() {
+    @media (max-width:1024px) {
+        @content
+    }
+    
 }

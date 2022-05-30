@@ -1,0 +1,458 @@
+@import "./assets/sass/_reset.scss";
+@import "./assets/sass/_functions.scss";
+@import "./assets/sass/_variables.scss";
+
+* {
+  font-family:'Open Sans', sans-serif;
+}
+
+.header {
+  background-color: $purble;
+
+
+  &__informations-top {
+    @include flex();
+    @include container-center();
+
+    background-color: $darkPurple;
+    box-sizing: border-box;
+    padding: 7px;
+
+    color: $white;
+    text-transform: uppercase;
+    font-size: calculator-rem(12);
+    line-height: calculator-rem(16);
+
+    &--text{
+      @include flex(center, flex-end);
+      font-weight: 300;
+      
+      &::after{
+        content: '';
+        width: 1px;
+        height: 12px;
+        background-color: $white;
+        display: inline-block;
+
+        margin: 0 5px;
+      }
+    }
+
+    &--text-highlight {
+      font-weight: 700;
+      margin-left: 5px;
+
+      &:nth-child(3) {
+        margin-left: 0;
+      }
+    }
+
+    &--text-margin {
+      font-weight: 300;
+    }
+  }
+
+  &__informations-top-wrap {
+    @include flex(space-between);
+
+    &::before, &::after {
+      content: '';
+      height: 10.8px;
+      width: 8.3px;
+      background-image: url(./assets/img/arrow.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      display: block;
+      margin-right: 20px ;
+    }
+
+    &::after {
+      transform: rotate(180deg);
+      margin-right: 0;
+      margin-left: 20px;
+    }
+  }
+}
+
+.menu {
+  background-color: $purble;
+  box-sizing: border-box;
+  @include container-center();
+  @include flex(space-between);
+
+  margin: 0 auto;
+  padding: 22px 0;
+  max-width: 1210px;
+  width: 100%;
+
+  @include media-mobile() {
+    max-width: 900px;
+    padding: 0;
+    margin-bottom: 26px
+  }
+
+  &__wrap {
+    @include flex();
+    flex-direction: column;
+    padding: 20px 15px 10px;
+    width: inherit;
+  }
+
+  &__logo {
+    @include media-mobile() {
+      order: 2;
+    }
+
+    &--text {
+    font-family: 'Ovo', serif; 
+    font-size: calculator-rem(48);
+    line-height: calculator-rem(36);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $white;
+    text-decoration: none;
+    max-width: 238px;
+
+    @include media-mobile() {
+      font-size: calculator-rem(36);
+    }
+    }
+  }
+
+  //** NAVEGATION MENU MOBILE
+  &__hamburger {
+    display: none;
+
+    @include media-mobile() {
+      display: block;
+      order: 1;
+    }
+  }
+
+  //** NAVEGATION MENU
+  &__nav {
+    @include flex(space-between);
+
+    list-style-type: none;
+    width: 100%;
+    margin: 0 31px;
+    flex: 1;
+
+  @include media-mobile() {
+    display: none;
+  }
+  }
+
+  &__nav-wrapper{
+    position: relative;
+  }
+
+  &__nav-department-list {
+    @include flex(space-between);
+
+    max-width: 780px;
+    flex-grow: 1;
+
+    &--item {
+      font-size: calculator-rem(14);
+      line-height: calculator-rem(19);
+      font-weight: 700;
+      color: $white;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $darkGrey;
+      }
+    }
+  }
+
+  //** CATEGORIES AND SUBCATEGORIES
+  &__nav-wrapper-category {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    text-transform:none;
+    background-color: $white;
+    max-width: 240px;
+    width: 194px;
+    border-top: 6px solid $darkPurple;
+
+    box-shadow: 2px 2px 5px $grey;
+
+    &--active {
+      display: block;
+    }
+    &--color {
+      background-color: $purble;
+      min-width: 240px;
+    }
+  }
+
+  &__nav-wrapper-scrollbar {
+    width: 240px;
+    height: 280px;
+    overflow: auto;
+
+    &::-webkit-scrollbar-track{
+      background-color: $whiteGrey;
+    }
+    
+    &::-webkit-scrollbar {
+      width: 12px;
+      background: $whiteGrey;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: $purble;
+      border-radius: 33px;
+    }
+  }
+
+  &__nav-wrapper-subcategory {
+    position: absolute;
+    top: -115%;
+    left: 100%;
+    z-index: 1;
+
+    text-transform:none;
+    background-color: $white;
+    max-width: 240px;
+    width: 194px;
+    border-top: 6px solid $darkPurple;
+
+    box-shadow: 2px 2px 5px $grey;
+  }
+
+  &__nav-category-list {
+    @include flex();
+
+    text-decoration: none;
+
+    color: $darkGrey;
+    font-weight: 400;
+    font-size: calculator-rem(13);
+    width: 100%;
+    height: 40px;
+
+    &:hover {
+      background-color: $lightGrey;
+    }
+
+    &--color {
+      color: $white;
+
+      &:hover {
+        background-color: $darkPurple;
+      }
+    }
+  }
+
+  //** ICONS
+  &__icon {
+    @include flex(space-between);
+    gap: 31px;
+    max-width: 135px;
+    width: 100%;
+
+    @include media-mobile() {
+      display: none;
+    }
+  }
+
+  &__icon-shopping-bag {
+    display: none;
+    width: 29px;
+    order: 3;
+
+    @include media-mobile() {
+      display: block;
+    }
+  }
+
+//** MENU MOBILE
+  &__mobile {
+    position: fixed;
+    top: 0;
+    left: -200%;
+    height: 100vh;
+    width: 100vw;
+    background-color: grey;
+
+    transition: all 500ms;
+
+    &.active {
+      left: 0;
+    }
+
+    &-wrapper {
+      height: 51px;
+      box-sizing: border-box;
+      padding: 0 26px;
+      background-color: $purble;
+      border-bottom: 1px solid $white;
+    }
+
+    &-close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 20vw;
+      height: 100%;
+
+      background-color:transparent;
+
+      &--button {
+        @include flex();
+        width: 100%;
+        height: 89px;
+        background-color: $lightGrey;
+        box-shadow: 0 2px 5px $grey;
+      }
+
+      &--button-icon {
+        width: 20px;
+      }
+    }
+  }
+
+  &__mobile-nav {
+    @include flex();
+    flex-direction: column;
+    width: 80vw;
+    margin: 0;
+
+    &-wrapper{
+      @include flex(flex-start, center);
+      box-sizing: border-box;
+      padding: 0 15px 0 26px;
+      height: 51px;
+      width: 80vw;
+      background-color: $purble;
+      border-bottom: 1px solid $lightGrey;
+    }
+
+    &-wrapper-department {
+      justify-content: space-between;
+      background-color: $darkPurple; 
+    }
+
+    &-wrapper-category {
+      background-color: $white; 
+      border-bottom: 1px solid $grey;
+
+      &.focus {
+        background-color: $lightGrey;
+      }
+    }
+
+    &-wrapper-subcategory {
+      background-color: $whiteGrey; 
+      border-bottom: 1px solid $white;
+    }
+
+    &--item {
+      @include flex();
+      color: $white;
+      font-family: 'Mulish', sans-serif;
+      font-size: calculator-rem(14);
+      line-height: calculator-rem(18);
+      text-decoration: none;
+      font-weight: 700;
+
+    &-user::before {
+      content: url(./assets/img/user.png);
+      margin-right: 12px;
+    }
+
+    &-box::before {
+      content: url(./assets/img/box.png);
+      margin-right: 12px;
+    }
+
+    &-bag::before {
+      content: url(./assets/img/shopping-bag.png);
+      margin-right: 12px;
+    }
+    }
+  }
+
+  &__mobile-nav-department {
+
+    &--item {
+      text-transform: uppercase;
+    }
+  }
+
+  &__mobile-nav-category {
+    display: none;
+
+    &--item {
+      font-weight: 300;
+      color: $darkPurple;
+    }
+
+    &--arrow {
+      margin-left: 19.5px;
+    }
+
+    &.active-category {
+      display: block;
+    }
+  }
+
+  &__mobile-nav-subcategory {
+    display: none;
+
+    &--item {
+      font-weight: 300;
+      color: $darkPurple;
+      margin-left: 14px;
+    }
+
+    &.active-subcategory {
+      display: block;
+
+
+    }
+  }
+
+  &__search {
+    
+      @include media-mobile() {
+      display: block;
+    }
+  }
+
+  &__search-input {
+    @include flex();
+    background-color: $white;
+    border: 1px solid $darkPurple;
+    box-sizing: border-box;
+    padding: 0 20px;
+    height: 48px;
+    max-width: 900px;
+    width: calc(100vw - 30px);
+
+    &--text {
+      font-family: 'Mulish', sans-serif;
+      border: none;
+      outline: transparent;
+      font-size: calculator-rem(14);
+      flex: 1;
+    }
+
+    &--icon {
+      background-color: $white;
+      background-image: url(./assets/img/loupe-mobile.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
