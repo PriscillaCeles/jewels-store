@@ -451,6 +451,11 @@ table {
   transition: all 500ms;
 }
 
+.menu__mobile::-webkit-scrollbar-thumb {
+  background: #9A7AA0;
+  border-radius: 33px;
+}
+
 .menu__mobile.active {
   left: 0;
 }
@@ -512,6 +517,11 @@ table {
   height: 100vh;
   background-color: rgba(250, 248, 248, 0.3);
   margin: 0;
+  overflow: auto;
+}
+
+.menu__mobile-nav::-webkit-scrollbar {
+  width: 0px;
 }
 
 .menu__mobile-nav-wrapper {

@@ -299,6 +299,11 @@
     background-color: #8080804f;
 
     transition: all 500ms;
+    
+    &::-webkit-scrollbar-thumb {
+      background: $purble;
+      border-radius: 33px;
+    }
 
     &.active {
       left: 0;
@@ -342,6 +347,11 @@
     height: 100vh;
     background-color: rgba(rgb(250, 248, 248), 0.3);
     margin: 0;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
 
     &-wrapper{
       @include flex(flex-start, center);
