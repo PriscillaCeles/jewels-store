@@ -1,13 +1,13 @@
-# Criação de uma Loja de Joias 💍💎
+# Creation of a Jewelry Store 💍💎
 
-Projeto desenvolvido durante o curso HallToCode.
+Project developed during the HallToCode course.
 
-📑 Usando:</br>
+<h3>📑 Using:</h3>
 - HTML; </br>
 - CSS;</br>
 - SCSS;</br>
 - JavaScript;</br>
-- API.</br>
+- APIs.</br>
 
 
  
