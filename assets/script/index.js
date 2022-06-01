@@ -119,9 +119,9 @@ function handlToggleMenu() {
 }
 
 function handlNavMenu() {
-  const $menuMobileArrowDepartments = document.querySelectorAll(".departmentArrow")
+  const $menuMobileArrowDepartments = document.querySelectorAll(".department-arrow")
   const $menuMobileCategories = document.querySelectorAll(".menu__mobile-nav-category")
-  const $menuMobileArrowCategories = document.querySelectorAll(".categoryArrow")
+  const $menuMobileArrowCategories = document.querySelectorAll(".category-arrow")
   const $menuMobileSubcategories = document.querySelectorAll(".menu__mobile-nav-subcategory")
   
   $menuMobileArrowDepartments.forEach(function ($mobileDepartment, index) {
@@ -129,6 +129,7 @@ function handlNavMenu() {
       for (let i = 0; i < $menuMobileCategories.length; i++) {
         const $mobileCategory = $menuMobileCategories[index];
         $mobileCategory.classList.toggle("active-category")
+        $menuMobileArrowDepartments[index].classList.toggle("menu__mobile-nav--arrow-active")
       }
   })
   })
@@ -136,17 +137,10 @@ function handlNavMenu() {
   $menuMobileArrowCategories.forEach(function ($mobileCategory, index) {
   $mobileCategory.addEventListener("click", function (){
     for (let i = 0; i < $menuMobileSubcategories.length; i++) {
-      console.log('ENTROU')
       const $mobileSubcategory = $menuMobileSubcategories[index];
       $mobileSubcategory.classList.toggle("active-subcategory")
-      console.log($menuMobileSubcategories[index])
+      $menuMobileArrowCategories[index].classList.toggle("menu__mobile-nav-category--arrow-active")
     }
-
-    // for (const $mobileSubcategory of $menuMobileSubcategories) {
-    //   $mobileSubcategory.classList.toggle("active-subcategory");
-    //   console.log(index)
-    // }
-
   })
   })
 }

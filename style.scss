@@ -12,7 +12,8 @@
 
   &__informations-top {
     @include flex();
-    @include container-center();
+    width: 100vw;
+
 
     background-color: $darkPurple;
     box-sizing: border-box;
@@ -26,7 +27,7 @@
     &--text{
       @include flex(center, flex-end);
       font-weight: 300;
-      
+
       &::after{
         content: '';
         width: 1px;
@@ -35,6 +36,16 @@
         display: inline-block;
 
         margin: 0 5px;
+
+        @include media-mobile() {
+            display: none;
+        }
+      }
+
+      @include media-mobile() {
+        &:nth-child(2) {
+          display: none;
+        }
       }
     }
 
@@ -44,6 +55,12 @@
 
       &:nth-child(3) {
         margin-left: 0;
+
+        @include media-mobile() {
+          &:nth-child(3) {
+            display: none;
+          }
+        }
       }
     }
 
@@ -279,7 +296,7 @@
     left: -200%;
     height: 100vh;
     width: 100vw;
-    background-color: grey;
+    background-color: #8080804f;
 
     transition: all 500ms;
 
@@ -299,7 +316,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      width: 20vw;
+      width: 80px;
       height: 100%;
 
       background-color:transparent;
@@ -319,9 +336,11 @@
   }
 
   &__mobile-nav {
-    @include flex();
+    @include flex(flex-start);
     flex-direction: column;
-    width: 80vw;
+    width: calc(100vw - (80px));
+    height: 100vh;
+    background-color: rgba(rgb(250, 248, 248), 0.3);
     margin: 0;
 
     &-wrapper{
@@ -329,7 +348,7 @@
       box-sizing: border-box;
       padding: 0 15px 0 26px;
       height: 51px;
-      width: 80vw;
+      width: calc(100vw - (80px));
       background-color: $purble;
       border-bottom: 1px solid $lightGrey;
     }
@@ -377,6 +396,14 @@
       margin-right: 12px;
     }
     }
+  
+    &--arrow {
+      transition: 200ms;
+
+      &-active{
+        transform: rotate(-.5turn);
+      }
+    }
   }
 
   &__mobile-nav-department {
@@ -392,11 +419,17 @@
     &--item {
       font-weight: 300;
       color: $darkPurple;
+      margin-right: 19.5px;
     }
 
     &--arrow {
-      margin-left: 19.5px;
+      transition: 200ms;
+
+      &-active{
+        transform: rotate(-.25turn);
+      }
     }
+    
 
     &.active-category {
       display: block;
@@ -406,6 +439,7 @@
   &__mobile-nav-subcategory {
     display: none;
 
+
     &--item {
       font-weight: 300;
       color: $darkPurple;
@@ -414,13 +448,12 @@
 
     &.active-subcategory {
       display: block;
-
-
     }
   }
 
   &__search {
-    
+    display: none;
+
       @include media-mobile() {
       display: block;
     }
