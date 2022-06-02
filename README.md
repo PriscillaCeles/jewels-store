@@ -2,6 +2,8 @@
 
 Project developed during the HallToCode course.
 
+Project to develop a dynamic and responsive e-commerce.
+
 <h3>📑 Using:</h3>
 - HTML; </br>
 - CSS;</br>
@@ -9,5 +11,6 @@ Project developed during the HallToCode course.
 - JavaScript;</br>
 - APIs.</br>
 
-
+ <h3> Check how it is so far ⤵️</h3>
  
+ <a href="https://priscillaceles.github.io/jewels-store/"><img src="http://ForTheBadge.com/images/badges/built-with-love.svg"></a>
