@@ -285,10 +285,6 @@ table {
   }
 }
 
-.menu__nav-wrapper {
-  position: relative;
-}
-
 .menu__nav-department-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -316,6 +312,10 @@ table {
 
 .menu__nav-department-list--item:hover {
   color: #302E2B;
+}
+
+.menu__nav-wrapper {
+  position: relative;
 }
 
 .menu__nav-wrapper-category {
@@ -362,6 +362,7 @@ table {
 }
 
 .menu__nav-wrapper-subcategory {
+  display: none;
   position: absolute;
   top: -115%;
   left: 100%;
@@ -373,6 +374,10 @@ table {
   border-top: 6px solid #614B65;
   -webkit-box-shadow: 2px 2px 5px #C4C4C4;
           box-shadow: 2px 2px 5px #C4C4C4;
+}
+
+.menu__nav-wrapper-subcategory--active {
+  display: block;
 }
 
 .menu__nav-category-list {

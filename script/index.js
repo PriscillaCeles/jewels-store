@@ -19,7 +19,7 @@ function constructInformativesTop(json) {
 }
 
 function informativesTop() {
-  fetch("./assets/mocks/INFORMATIVES_TOP.json")
+  fetch("../mocks/INFORMATIVES_TOP.json")
     .then(function (response) {
       return response.json();
     })
@@ -30,7 +30,7 @@ function informativesTop() {
 }
 
 function requestMenuDesktop() {
-  fetch("./assets/mocks/MENU.json")
+  fetch("../mocks/MENU.json")
     .then(function (response) {
       return response.json();
     })
@@ -79,10 +79,13 @@ informativesTop();
 // requestMenuDesktop();
 
 //* HOVER MENU 
-const $menuNavDepartment = document.querySelectorAll(".menu__nav-department-list--item")
+const $menuNavDepartmentItems = document.querySelectorAll(".department-list-item")
 const $menuNavCategory = document.querySelectorAll(".menu__nav-wrapper-category")
+const $menuNavCategoryItems = document.querySelectorAll(".category-list-item")
+const $menuNavSubcategory = document.querySelectorAll(".menu__nav-wrapper-subcategory")
 
-$menuNavDepartment.forEach(function ($department, index) {
+
+$menuNavDepartmentItems.forEach(function ($department, index) {
   $department.addEventListener("mouseover", function (){
     for (let i = 0; i < $menuNavCategory.length; i++) {
       const $category = $menuNavCategory[index];
@@ -96,6 +99,23 @@ $menuNavDepartment.forEach(function ($department, index) {
     }
   })
 })
+
+$menuNavCategoryItems.forEach(function ($category, index) {
+  $category.addEventListener("mouseover", function (){
+    for (let i = 0; i < $menuNavSubcategory.length; i++) {
+      const $subcategoryNav = $menuNavSubcategory[index];
+      $subcategoryNav.classList.add("menu__nav-wrapper-subcategory--active")
+    } 
+  })
+  $category.addEventListener("mouseleave", function (){
+    for (let i = 0; i < $menuNavSubcategory.length; i++) {
+      const $subcategoryNav = $menuNavSubcategory[index];
+      $subcategoryNav.classList.remove("menu__nav-wrapper-subcategory--active")
+    } 
+  })
+})
+
+
 
 //* MENU MOBILE */
 

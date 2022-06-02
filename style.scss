@@ -1,6 +1,6 @@
-@import "./assets/sass/_reset.scss";
-@import "./assets/sass/_functions.scss";
-@import "./assets/sass/_variables.scss";
+@import "./sass/_reset.scss";
+@import "./sass/_functions.scss";
+@import "./sass/_variables.scss";
 
 * {
   font-family:'Open Sans', sans-serif;
@@ -160,10 +160,6 @@
   }
   }
 
-  &__nav-wrapper{
-    position: relative;
-  }
-
   &__nav-department-list {
     @include flex(space-between);
 
@@ -182,6 +178,10 @@
         color: $darkGrey;
       }
     }
+  }
+  
+  &__nav-wrapper{
+    position: relative;
   }
 
   //** CATEGORIES AND SUBCATEGORIES
@@ -229,6 +229,7 @@
   }
 
   &__nav-wrapper-subcategory {
+    display: none;
     position: absolute;
     top: -115%;
     left: 100%;
@@ -241,6 +242,10 @@
     border-top: 6px solid $darkPurple;
 
     box-shadow: 2px 2px 5px $grey;
+
+    &--active {
+      display: block;
+    }
   }
 
   &__nav-category-list {
