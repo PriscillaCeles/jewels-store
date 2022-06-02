@@ -284,6 +284,10 @@
     }
   }
 
+  &__icon--item {
+    cursor: pointer;
+  }
+
   &__icon-shopping-bag {
     display: none;
     width: 29px;

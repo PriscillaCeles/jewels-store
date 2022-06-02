@@ -68,10 +68,7 @@ function constructMenuDesktop(json) {
     } else {
       strucureMenu += `</li>`;
     }
-
-    console.log;
   }
-
   $containerMenu.innerHTML = strucureMenu;
 }
 
@@ -83,7 +80,6 @@ const $menuNavDepartmentItems = document.querySelectorAll(".department-list-item
 const $menuNavCategory = document.querySelectorAll(".menu__nav-wrapper-category")
 const $menuNavCategoryItems = document.querySelectorAll(".category-list-item")
 const $menuNavSubcategory = document.querySelectorAll(".menu__nav-wrapper-subcategory")
-
 
 $menuNavDepartmentItems.forEach(function ($department, index) {
   $department.addEventListener("mouseover", function (){
@@ -115,10 +111,7 @@ $menuNavCategoryItems.forEach(function ($category, index) {
   })
 })
 
-
-
 //* MENU MOBILE */
-
 function handlToggleMenu() {
   const $openMenuMobile = document.querySelector(".menu__hamburger");
   const $menuMobile = document.querySelector(".menu__mobile");

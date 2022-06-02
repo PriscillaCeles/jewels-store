@@ -431,6 +431,10 @@ table {
   }
 }
 
+.menu__icon--item {
+  cursor: pointer;
+}
+
 .menu__icon-shopping-bag {
   display: none;
   width: 29px;
