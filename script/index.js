@@ -19,7 +19,7 @@ function constructInformativesTop(json) {
 }
 
 function informativesTop() {
-  fetch("../mocks/INFORMATIVES_TOP.json")
+  fetch("/mocks/INFORMATIVES_TOP.json")
     .then(function (response) {
       return response.json();
     })
@@ -30,7 +30,7 @@ function informativesTop() {
 }
 
 function requestMenuDesktop() {
-  fetch("../mocks/MENU.json")
+  fetch("/mocks/MENU.json")
     .then(function (response) {
       return response.json();
     })
