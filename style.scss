@@ -3,17 +3,15 @@
 @import "./sass/_variables.scss";
 
 * {
-  font-family:'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .header {
   background-color: $purble;
 
-
   &__informations-top {
     @include flex();
     width: 100vw;
-
 
     background-color: $darkPurple;
     box-sizing: border-box;
@@ -24,12 +22,12 @@
     font-size: calculator-rem(12);
     line-height: calculator-rem(16);
 
-    &--text{
+    &--text {
       @include flex(center, flex-end);
       font-weight: 300;
 
-      &::after{
-        content: '';
+      &::after {
+        content: "";
         width: 1px;
         height: 12px;
         background-color: $white;
@@ -38,7 +36,7 @@
         margin: 0 5px;
 
         @include media-mobile() {
-            display: none;
+          display: none;
         }
       }
 
@@ -72,15 +70,16 @@
   &__informations-top-wrap {
     @include flex(space-between);
 
-    &::before, &::after {
-      content: '';
+    &::before,
+    &::after {
+      content: "";
       height: 10.8px;
       width: 8.3px;
       background-image: url(./assets/img/arrow.png);
       background-repeat: no-repeat;
       background-size: contain;
       display: block;
-      margin-right: 20px ;
+      margin-right: 20px;
     }
 
     &::after {
@@ -98,41 +97,45 @@
   @include flex(space-between);
 
   margin: 0 auto;
-  padding: 22px 0;
   max-width: 1210px;
   width: 100%;
 
   @include media-mobile() {
     max-width: 900px;
     padding: 0;
-    margin-bottom: 26px
+    margin-bottom: 26px;
   }
 
   &__wrap {
-    @include flex();
-    flex-direction: column;
-    padding: 20px 15px 10px;
-    width: inherit;
+    @include media-mobile() {
+      @include flex();
+      flex-direction: column;
+      padding: 20px 15px 10px;
+      width: inherit;
+    }
   }
 
   &__logo {
+    padding: 22px 0;
+
     @include media-mobile() {
       order: 2;
+      padding: 0;
     }
 
     &--text {
-    font-family: 'Ovo', serif; 
-    font-size: calculator-rem(48);
-    line-height: calculator-rem(36);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: $white;
-    text-decoration: none;
-    max-width: 238px;
+      font-family: "Ovo", serif;
+      font-size: calculator-rem(48);
+      line-height: calculator-rem(36);
+      font-weight: 400;
+      text-transform: uppercase;
+      color: $white;
+      text-decoration: none;
+      max-width: 238px;
 
-    @include media-mobile() {
-      font-size: calculator-rem(36);
-    }
+      @include media-mobile() {
+        font-size: calculator-rem(36);
+      }
     }
   }
 
@@ -152,46 +155,64 @@
 
     list-style-type: none;
     width: 100%;
+    height: 80px;
     margin: 0 31px;
     flex: 1;
 
-  @include media-mobile() {
-    display: none;
-  }
+    @include media-mobile() {
+      display: none;
+    }
   }
 
   &__nav-department-list {
     @include flex(space-between);
 
     max-width: 780px;
+    height: 80px;
     flex-grow: 1;
 
     &--item {
+      @include flex();
       font-size: calculator-rem(14);
       line-height: calculator-rem(19);
       font-weight: 700;
       color: $white;
-      text-decoration: none;
       text-transform: uppercase;
+      height: 80px;
 
       &:hover {
         color: $darkGrey;
       }
     }
   }
-  
-  &__nav-wrapper{
+
+  &__nav-wrapper {
     position: relative;
+    font-size: 0;
+
+    &:hover {
+      .menu__nav-wrapper-category {
+        display: block;
+      }
+    }
+
+    &--category-item {
+      &:hover {
+        .menu__nav-wrapper-subcategory {
+          display: block;
+        }
+      }
+    }
   }
 
   //** CATEGORIES AND SUBCATEGORIES
   &__nav-wrapper-category {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 92%;
     left: 0;
 
-    text-transform:none;
+    text-transform: none;
     background-color: $white;
     max-width: 240px;
     width: 194px;
@@ -213,15 +234,11 @@
     height: 280px;
     overflow: auto;
 
-    &::-webkit-scrollbar-track{
-      background-color: $whiteGrey;
-    }
-    
     &::-webkit-scrollbar {
       width: 12px;
       background: $whiteGrey;
     }
-    
+
     &::-webkit-scrollbar-thumb {
       background: $purble;
       border-radius: 33px;
@@ -233,19 +250,14 @@
     position: absolute;
     top: -115%;
     left: 100%;
-    z-index: 1;
 
-    text-transform:none;
+    text-transform: none;
     background-color: $white;
     max-width: 240px;
     width: 194px;
     border-top: 6px solid $darkPurple;
 
     box-shadow: 2px 2px 5px $grey;
-
-    &--active {
-      display: block;
-    }
   }
 
   &__nav-category-list {
@@ -298,7 +310,7 @@
     }
   }
 
-//** MENU MOBILE
+  //** MENU MOBILE
   &__mobile {
     position: fixed;
     top: 0;
@@ -308,7 +320,7 @@
     background-color: #8080804f;
 
     transition: all 500ms;
-    
+
     &::-webkit-scrollbar-thumb {
       background: $purble;
       border-radius: 33px;
@@ -333,7 +345,7 @@
       width: 80px;
       height: 100%;
 
-      background-color:transparent;
+      background-color: transparent;
 
       &--button {
         @include flex();
@@ -362,7 +374,7 @@
       width: 0px;
     }
 
-    &-wrapper{
+    &-wrapper {
       @include flex(flex-start, center);
       box-sizing: border-box;
       padding: 0 15px 0 26px;
@@ -374,11 +386,11 @@
 
     &-wrapper-department {
       justify-content: space-between;
-      background-color: $darkPurple; 
+      background-color: $darkPurple;
     }
 
     &-wrapper-category {
-      background-color: $white; 
+      background-color: $white;
       border-bottom: 1px solid $grey;
 
       &.focus {
@@ -387,46 +399,50 @@
     }
 
     &-wrapper-subcategory {
-      background-color: $whiteGrey; 
+      background-color: $whiteGrey;
       border-bottom: 1px solid $white;
     }
 
     &--item {
       @include flex();
       color: $white;
-      font-family: 'Mulish', sans-serif;
+      font-family: "Mulish", sans-serif;
       font-size: calculator-rem(14);
       line-height: calculator-rem(18);
       text-decoration: none;
       font-weight: 700;
 
-    &-user::before {
-      content: url(./assets/img/user.png);
-      margin-right: 12px;
+      &-user::before {
+        content: url(./assets/img/user.png);
+        margin-right: 12px;
+      }
+
+      &-box::before {
+        content: url(./assets/img/box.png);
+        margin-right: 12px;
+      }
+
+      &-bag::before {
+        content: url(./assets/img/shopping-bag.png);
+        margin-right: 12px;
+      }
     }
 
-    &-box::before {
-      content: url(./assets/img/box.png);
-      margin-right: 12px;
-    }
-
-    &-bag::before {
-      content: url(./assets/img/shopping-bag.png);
-      margin-right: 12px;
-    }
-    }
-  
     &--arrow {
+      @include flex(flex-end);
+      width: 20%;
+      height: 100%;
       transition: 200ms;
 
-      &-active{
-        transform: rotate(-.5turn);
+      &-active {
+        .menu__mobile-nav-department--arrow {
+          transform: rotate(-0.5turn);
+        }
       }
     }
   }
 
   &__mobile-nav-department {
-
     &--item {
       text-transform: uppercase;
     }
@@ -434,6 +450,7 @@
 
   &__mobile-nav-category {
     display: none;
+    font-size: 0;
 
     &--item {
       font-weight: 300;
@@ -442,13 +459,16 @@
     }
 
     &--arrow {
-      transition: 200ms;
+      @include flex(flex-start);
+      flex-grow: 1;
+      height: 100%;
 
-      &-active{
-        transform: rotate(-.25turn);
+      &.active {
+        .menu__mobile-nav-category--arrow-icon {
+          transform: rotate(-0.25turn);
+        }
       }
     }
-    
 
     &.active-category {
       display: block;
@@ -457,7 +477,7 @@
 
   &__mobile-nav-subcategory {
     display: none;
-
+    font-size: 0;
 
     &--item {
       font-weight: 300;
@@ -473,7 +493,7 @@
   &__search {
     display: none;
 
-      @include media-mobile() {
+    @include media-mobile() {
       display: block;
     }
   }
@@ -489,7 +509,7 @@
     width: calc(100vw - 30px);
 
     &--text {
-      font-family: 'Mulish', sans-serif;
+      font-family: "Mulish", sans-serif;
       border: none;
       outline: transparent;
       font-size: calculator-rem(14);
@@ -507,4 +527,3 @@
     }
   }
 }
-

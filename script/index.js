@@ -29,134 +29,212 @@ function informativesTop() {
     });
 }
 
-function requestMenuDesktop() {
+function requestMenu() {
   fetch("./mocks/MENU.json")
     .then(function (response) {
       return response.json();
     })
     .then(function (json) {
-      constructMenuDesktop(json.menu);
+      const sizeWindow = window.innerWidth;
+
+      if (sizeWindow >= 1024) {
+        constructMenuDesktop(json.menu);
+      } else {
+        constructMenuMobile(json.menu);
+      }
     });
 }
 
+informativesTop();
+requestMenu();
+
 function constructMenuDesktop(json) {
-  let strucureMenu = "";
+  let structureMenu = "";
 
   const $containerMenu = document.querySelector(".menu__nav");
 
-  console.log(json);
-
   for (const menu of json) {
-    console.log("*", menu);
-    console.log("->", menu.children);
-
-    strucureMenu += `
+    structureMenu += `
     <li class="menu__nav-wrapper" >
-      <a href="${menu.url}" class="menu__nav-department-list--item">${menu.name}</a>
-    `;
-
-    if (menu.category) {
-      let i = 0;
-      menu.children.forEach(function () {
-        strucureMenu += `<ul class="menu__nav-wrapper-category">
-          <li class="menu__nav-wrapper">
-            <a href="index.html" class="menu__nav-category-list">${menu.children[1].name}</a>
-          </li> 
-        </ul>`;
-        i++;
-      });
-    } else {
-      strucureMenu += `</li>`;
+      <a href="${menu.url}" class="menu__nav-department-list--item">${
+      menu.name
+    }</a>
+    ${
+      menu.children
+        ? `
+      <ul class="menu__nav-wrapper-category ${
+        menu.name === `Turmalina` ? `menu__nav-wrapper-category--color` : ``
+      } ${menu.name === `Outros` ? `menu__nav-wrapper-scrollbar` : ``}">
+        ${menu.children.map(function (child) {
+          return `
+          <li class="menu__nav-wrapper menu__nav-wrapper--category-item">
+            <a href=${
+              child.url
+            } class="menu__nav-category-list ${menu.name === `Turmalina` ? `menu__nav-category-list--color` : ``}">${child.name}</a>
+            ${
+              child.children
+                ? `
+              <ul class=" menu__nav-wrapper-subcategory">
+              ${child.children.map(function (subchild) {
+                return `
+                <li class="menu__nav-wrapper subcategory-list">
+                  <a href=${subchild.url} class="menu__nav-category-list">${subchild.name}</a>
+                </li>
+                `;
+              })}
+              </ul>`
+                : ``
+            }
+          </li>
+          `;
+        })}
+      </ul>`
+        : ``
     }
+    </li>`;
   }
-  $containerMenu.innerHTML = strucureMenu;
+  $containerMenu.innerHTML = structureMenu;
 }
 
-informativesTop();
-// requestMenuDesktop();
+function handlNavMenuMobile() {
+  const $menuMobileArrowDepartments =
+    document.querySelectorAll(".department-arrow");
+  const $menuMobileCategories = document.querySelectorAll(
+    ".menu__mobile-nav-category"
+  );
+  const $menuMobileArrowCategories = document.querySelectorAll(
+    ".menu__mobile-nav-category--arrow"
+  );
+  const $menuMobileSubcategories = document.querySelectorAll(
+    ".menu__mobile-nav-subcategory"
+  );
 
-//* HOVER MENU 
-const $menuNavDepartmentItems = document.querySelectorAll(".department-list-item")
-const $menuNavCategory = document.querySelectorAll(".menu__nav-wrapper-category")
-const $menuNavCategoryItems = document.querySelectorAll(".category-list-item")
-const $menuNavSubcategory = document.querySelectorAll(".menu__nav-wrapper-subcategory")
+  $menuMobileArrowDepartments.forEach(function ($mobileDepartment, index) {
+    $mobileDepartment.addEventListener("click", function () {
+      for (let i = 0; i < $menuMobileCategories.length; i++) {
+        const $mobileCategory = $menuMobileCategories[index];
+        $mobileCategory.classList.toggle("active-category");
+        $menuMobileArrowDepartments[index].classList.toggle(
+          "menu__mobile-nav--arrow-active"
+        );
+      }
+    });
+  });
 
-$menuNavDepartmentItems.forEach(function ($department, index) {
-  $department.addEventListener("mouseover", function (){
-    for (let i = 0; i < $menuNavCategory.length; i++) {
-      const $category = $menuNavCategory[index];
-      $category.classList.add("menu__nav-wrapper-category--active")
-    }
-  })
-  $department.addEventListener("mouseleave", function (){
-    for (let i = 0; i < $menuNavCategory.length; i++) {
-      const $category = $menuNavCategory[index];
-      $category.classList.remove("menu__nav-wrapper-category--active")
-    }
-  })
-})
+  $menuMobileArrowCategories.forEach(function ($mobileCategory, index) {
+    $mobileCategory.addEventListener("click", function () {
+      for (let i = 0; i < $menuMobileSubcategories.length; i++) {
+        const $mobileSubcategory = $menuMobileSubcategories[index];
+        $menuMobileArrowCategories[index].classList.toggle("active");
+        $mobileSubcategory.classList.toggle("active-subcategory");
+      }
+    });
+  });
+}
 
-$menuNavCategoryItems.forEach(function ($category, index) {
-  $category.addEventListener("mouseover", function (){
-    for (let i = 0; i < $menuNavSubcategory.length; i++) {
-      const $subcategoryNav = $menuNavSubcategory[index];
-      $subcategoryNav.classList.add("menu__nav-wrapper-subcategory--active")
-    } 
-  })
-  $category.addEventListener("mouseleave", function (){
-    for (let i = 0; i < $menuNavSubcategory.length; i++) {
-      const $subcategoryNav = $menuNavSubcategory[index];
-      $subcategoryNav.classList.remove("menu__nav-wrapper-subcategory--active")
-    } 
-  })
-})
+function constructMenuMobile(json) {
+  let structureMenuMobile = "";
+  const $containerMenuMobile = document.querySelector(
+    ".menu__mobile-nav-department"
+  );
 
-//* MENU MOBILE */
+  json.map(function (menu) {
+    structureMenuMobile += `
+    <li class="menu__mobile-nav-department--items ${
+      menu.children ? `menu__department-with-category` : ``
+    }">
+      <div class="menu__mobile-nav-wrapper menu__mobile-nav-wrapper-department">
+        <a href=${
+          menu.url
+        } class="menu__mobile-nav--item menu__mobile-nav-department--item">${
+      menu.name
+    }</a>
+        ${
+          menu.children
+            ? `
+        <span class="menu__mobile-nav--arrow department-arrow">
+          <img class="menu__mobile-nav-department--arrow" src="./assets/img/arrow-down-department.png"
+          alt="ícone de seta apontando para baixo"
+          title="ícone de seta baixo em branco, composto por duas linhas diagonais">
+        </span>
+        `
+            : ``
+        }
+      </div>
+      ${
+        menu.children
+          ? `
+      <ul class="menu__mobile-nav-category ">
+      ${menu.children.map(function (child) {
+        return `
+        <li class="menu__mobile-nav-category--items">
+          <div class="menu__mobile-nav-wrapper menu__mobile-nav-wrapper-category">
+            <a href=${
+              child.url
+            } class="menu__mobile-nav--item menu__mobile-nav-category--item">${child.name}</a>
+            ${
+              child.children
+                ? `
+              <span class="menu__mobile-nav-category--arrow category-arrow">
+              <img class="menu__mobile-nav-category--arrow-icon" src="./assets/img/arrow-down-category.png"
+              alt="ícone de seta apontando para baixo"
+              title="ícone de seta baixo em branco, composto por duas linhas diagonais">
+              </span>
+            `
+                : ``
+            }
+          </div>
+          ${
+            child.children
+              ? `
+              <ul class=" menu__mobile-nav-subcategory">
+            ${child.children.map(function (subchild) {
+              return `
+              <li class="menu__mobile-nav-subcategory--items">
+                <div class="menu__mobile-nav-wrapper menu__mobile-nav-wrapper-subcategory">
+                  <a href=${subchild.url} class="menu__mobile-nav--item menu__mobile-nav-subcategory--item">${subchild.name}</a>
+                </div>
+              </li>
+              `;
+            })}
+            </ul>`
+              : ``
+          }
+        </li>
+        `;
+      })}
+      </ul>
+      `
+          : ``
+      }
+  </li>
+    `;
+  });
+  $containerMenuMobile.innerHTML = structureMenuMobile;
+
+  handlNavMenuMobile();
+}
+
+//* MENU MOBILE - OPEN AND CLOSE  */
 function handlToggleMenu() {
   const $openMenuMobile = document.querySelector(".menu__hamburger");
   const $menuMobile = document.querySelector(".menu__mobile");
   const $closeMenuMobile = document.querySelector(".close-menu");
-  const $closeMenuMobileIcon = document.querySelector(".menu__mobile-close--button");
+  const $closeMenuMobileIcon = document.querySelector(
+    ".menu__mobile-close--button"
+  );
 
-  $openMenuMobile.addEventListener("click", function(){
+  $openMenuMobile.addEventListener("click", function () {
     $menuMobile.classList.add("active");
-  })
+  });
 
-  $closeMenuMobile.addEventListener("click", function(){
+  $closeMenuMobile.addEventListener("click", function () {
     $menuMobile.classList.remove("active");
-  })
+  });
 
-  $closeMenuMobileIcon.addEventListener("click", function(){
+  $closeMenuMobileIcon.addEventListener("click", function () {
     $menuMobile.classList.remove("active");
-  })
+  });
 }
 
-function handlNavMenu() {
-  const $menuMobileArrowDepartments = document.querySelectorAll(".department-arrow")
-  const $menuMobileCategories = document.querySelectorAll(".menu__mobile-nav-category")
-  const $menuMobileArrowCategories = document.querySelectorAll(".category-arrow")
-  const $menuMobileSubcategories = document.querySelectorAll(".menu__mobile-nav-subcategory")
-  
-  $menuMobileArrowDepartments.forEach(function ($mobileDepartment, index) {
-    $mobileDepartment.addEventListener("click", function (){
-      for (let i = 0; i < $menuMobileCategories.length; i++) {
-        const $mobileCategory = $menuMobileCategories[index];
-        $mobileCategory.classList.toggle("active-category")
-        $menuMobileArrowDepartments[index].classList.toggle("menu__mobile-nav--arrow-active")
-      }
-  })
-  })
-
-  $menuMobileArrowCategories.forEach(function ($mobileCategory, index) {
-  $mobileCategory.addEventListener("click", function (){
-    for (let i = 0; i < $menuMobileSubcategories.length; i++) {
-      const $mobileSubcategory = $menuMobileSubcategories[index];
-      $mobileSubcategory.classList.toggle("active-subcategory")
-      $menuMobileArrowCategories[index].classList.toggle("menu__mobile-nav-category--arrow-active")
-    }
-  })
-  })
-}
-
-handlToggleMenu()
-handlNavMenu()
+handlToggleMenu();

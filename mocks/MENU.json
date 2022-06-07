@@ -3,8 +3,6 @@
     { 
       "name": "Água Marinha",
       "url": "/aguaMarina",
-      "category": true,
-      "subcategory": false,
       "children": [
         {
           "name": "Água Marinha - Incolor",
@@ -12,51 +10,41 @@
         },
         {
           "name": "Água Marinha - Azul",
-          "url": "/incolor"
+          "url": "/Azul"
         },
         {
           "name": "Água Marinha - Verde",
-          "url": "/incolor"
+          "url": "/Verde"
         }
       ]
     },  
     {
       "name": "Ametista",
-      "url": "/ametista",
-      "category": false,
-      "subcategory": false
+      "url": "/ametista"
     },
     {
       "name": "Birilo",
-      "url": "/birilo",
-      "category": false,
-      "subcategory": false
+      "url": "/birilo"
     },
     {
       "name": "Esmeralda",
-      "url": "/esmeralda",
-      "category": false,
-      "subcategory": false
+      "url": "/esmeralda"
     },
     {
       "name": "Tópazio Imperial",
-      "url": "/esmeralda",
-      "category": false,
-      "subcategory": false
+      "url": "/esmeralda"
     },
     {
       "name": "Turmalina",
       "url": "/turmalina",
-      "category": true,
-      "subcategory": true,
       "children": [
         {
           "name": "Turmalina - Verde Água",
           "url": "/turmalina-verde-agua"
         },
         {
-          "name": "Turmalina - Verde",
-          "url": "turmalina-verde",
+          "name": "Turmalina - Verde Bandeira",
+          "url": "turmalina-verde-bandeira",
           "children": [
             {
               "name": "Turmalina - Amarela",
@@ -97,16 +85,8 @@
           ]
         },
         {
-          "name": "Bandeira",
-          "url": "/bandeira"
-        },
-        {
-          "name": "Turmalina - Verde",
-          "url": "turmalina-verde"
-        },
-        {
-          "name": "Amarelado",
-          "url": "/amarelado"
+          "name": "Turmalina - Verde Amarelado",
+          "url": "turmalina-verde-amarelado"
         },
         {
           "name": "Turmalina - Verde Pirineu",
@@ -121,8 +101,6 @@
     {
       "name": "Outros",
       "url": "/Outros",
-      "category": true,
-      "subcategory": false,
       "children": [
         {
           "name": "Safira",

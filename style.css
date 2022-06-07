@@ -58,8 +58,13 @@ table {
   border-spacing: 0;
 }
 
+a {
+  text-decoration: none;
+  height: inherit;
+}
+
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .header {
@@ -101,7 +106,7 @@ table {
 }
 
 .header__informations-top--text::after {
-  content: '';
+  content: "";
   width: 1px;
   height: 12px;
   background-color: #ffffff;
@@ -153,7 +158,7 @@ table {
 }
 
 .header__informations-top-wrap::before, .header__informations-top-wrap::after {
-  content: '';
+  content: "";
   height: 10.8px;
   width: 8.3px;
   background-image: url(./assets/img/arrow.png);
@@ -186,7 +191,6 @@ table {
       -ms-flex-align: center;
           align-items: center;
   margin: 0 auto;
-  padding: 22px 0;
   max-width: 1210px;
   width: 100%;
 }
@@ -205,22 +209,28 @@ table {
   }
 }
 
-.menu__wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 20px 15px 10px;
-  width: inherit;
+@media (max-width: 1024px) {
+  .menu__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 20px 15px 10px;
+    width: inherit;
+  }
+}
+
+.menu__logo {
+  padding: 22px 0;
 }
 
 @media (max-width: 1024px) {
@@ -228,11 +238,12 @@ table {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    padding: 0;
   }
 }
 
 .menu__logo--text {
-  font-family: 'Ovo', serif;
+  font-family: "Ovo", serif;
   font-size: 3rem;
   line-height: 2.25rem;
   font-weight: 400;
@@ -273,6 +284,7 @@ table {
           align-items: center;
   list-style-type: none;
   width: 100%;
+  height: 80px;
   margin: 0 31px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -296,18 +308,28 @@ table {
       -ms-flex-align: center;
           align-items: center;
   max-width: 780px;
+  height: 80px;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
 
 .menu__nav-department-list--item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 0.875rem;
   line-height: 1.1875rem;
   font-weight: 700;
   color: #ffffff;
-  text-decoration: none;
   text-transform: uppercase;
+  height: 80px;
 }
 
 .menu__nav-department-list--item:hover {
@@ -316,12 +338,21 @@ table {
 
 .menu__nav-wrapper {
   position: relative;
+  font-size: 0;
+}
+
+.menu__nav-wrapper:hover .menu__nav-wrapper-category {
+  display: block;
+}
+
+.menu__nav-wrapper--category-item:hover .menu__nav-wrapper-subcategory {
+  display: block;
 }
 
 .menu__nav-wrapper-category {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 92%;
   left: 0;
   text-transform: none;
   background-color: #ffffff;
@@ -347,10 +378,6 @@ table {
   overflow: auto;
 }
 
-.menu__nav-wrapper-scrollbar::-webkit-scrollbar-track {
-  background-color: #E5E3E2;
-}
-
 .menu__nav-wrapper-scrollbar::-webkit-scrollbar {
   width: 12px;
   background: #E5E3E2;
@@ -366,7 +393,6 @@ table {
   position: absolute;
   top: -115%;
   left: 100%;
-  z-index: 1;
   text-transform: none;
   background-color: #ffffff;
   max-width: 240px;
@@ -374,10 +400,6 @@ table {
   border-top: 6px solid #614B65;
   -webkit-box-shadow: 2px 2px 5px #C4C4C4;
           box-shadow: 2px 2px 5px #C4C4C4;
-}
-
-.menu__nav-wrapper-subcategory--active {
-  display: block;
 }
 
 .menu__nav-category-list {
@@ -584,7 +606,7 @@ table {
       -ms-flex-align: center;
           align-items: center;
   color: #ffffff;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 0.875rem;
   line-height: 1.125rem;
   text-decoration: none;
@@ -607,11 +629,22 @@ table {
 }
 
 .menu__mobile-nav--arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+  height: 100%;
   -webkit-transition: 200ms;
   transition: 200ms;
 }
 
-.menu__mobile-nav--arrow-active {
+.menu__mobile-nav--arrow-active .menu__mobile-nav-department--arrow {
   -webkit-transform: rotate(-0.5turn);
           transform: rotate(-0.5turn);
 }
@@ -622,6 +655,7 @@ table {
 
 .menu__mobile-nav-category {
   display: none;
+  font-size: 0;
 }
 
 .menu__mobile-nav-category--item {
@@ -631,11 +665,22 @@ table {
 }
 
 .menu__mobile-nav-category--arrow {
-  -webkit-transition: 200ms;
-  transition: 200ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 100%;
 }
 
-.menu__mobile-nav-category--arrow-active {
+.menu__mobile-nav-category--arrow.active .menu__mobile-nav-category--arrow-icon {
   -webkit-transform: rotate(-0.25turn);
           transform: rotate(-0.25turn);
 }
@@ -646,6 +691,7 @@ table {
 
 .menu__mobile-nav-subcategory {
   display: none;
+  font-size: 0;
 }
 
 .menu__mobile-nav-subcategory--item {
@@ -689,7 +735,7 @@ table {
 }
 
 .menu__search-input--text {
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
   border: none;
   outline: transparent;
   font-size: 0.875rem;
