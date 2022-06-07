@@ -4,7 +4,6 @@ function constructInformativesTop(json) {
   );
 
   for (completeText of json) {
-    const createSpan = document.createElement("span");
     $headerInformation.innerHTML += `
       <span class="header__informations-top--text${
         completeText.firstBoldType ? "-highlight" : ""
@@ -19,7 +18,7 @@ function constructInformativesTop(json) {
 }
 
 function informativesTop() {
-  fetch("../mocks/INFORMATIVES_TOP.json")
+  fetch("./mocks/INFORMATIVES_TOP.json")
     .then(function (response) {
       return response.json();
     })
@@ -30,7 +29,7 @@ function informativesTop() {
 }
 
 function requestMenu() {
-  fetch("../mocks/MENU.json")
+  fetch("./mocks/MENU.json")
     .then(function (response) {
       return response.json();
     })
