@@ -1,0 +1,30 @@
+[
+  {
+    "src": "./assets/img/padlock.png",
+    "bold": "Compra 100% segura",
+    "text": "Seus dados ficam protegidos",
+    "alt": "ícone de cadeado",
+    "title": "Cadeado em branco composto por um retângulo vazado e um arco centralizado no top"
+  },
+  {
+    "src": "./assets/img/cred-card.png",
+    "bold": "Até 3x sem juros",
+    "text": "Seus dados ficam protegidos",
+    "alt": "ícone de cartão de crédito",
+    "title": "Cartão de crédito composto por um retângulo vazado com linhas horizontais em branco"
+  },
+  {
+    "src": "./assets/img/truck.png",
+    "bold": "Receba no mesmo dia",
+    "text": "Para região de São Paulo capital",
+    "alt": "ícone de caminhão",
+    "title": "Caminhão em branco composto por um retângulo vazado, representado o baú, e um retângulo menore presentando a cabine"
+  },
+  {
+    "src": "./assets/img/certified.png",
+    "bold": "Produtos certificados",
+    "text": "Certificação de autenticidade ENE2ESE",
+    "alt": "ícone de selo de certificação",
+    "title": "Selo em branco composto por um circulo vazado"
+  }
+]

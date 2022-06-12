@@ -7,7 +7,7 @@ function constructInformativesTop(json) {
     $headerInformation.innerHTML += `
       <span class="header__informations-top--text${
         completeText.firstBoldType ? "-highlight" : ""
-      }">${completeText.text}
+      } swiper-slide">${completeText.text}
         <strong class="header__informations-top--text${
           completeText.firstBoldType === false ? "-highlight" : "-margin"
         }">${completeText.bold}</strong>
@@ -18,18 +18,21 @@ function constructInformativesTop(json) {
 }
 
 function informativesTop() {
-  fetch("./mocks/INFORMATIVES_TOP.json")
+  fetch("../mocks/INFORMATIVES_TOP.json")
     .then(function (response) {
       return response.json();
     })
     .then(function (json) {
       constructInformativesTop(json);
-      console.log(json);
     });
 }
 
+informativesTop();
+
+
+//#region MENU
 function requestMenu() {
-  fetch("./mocks/MENU.json")
+  fetch("../mocks/MENU.json")
     .then(function (response) {
       return response.json();
     })
@@ -44,7 +47,6 @@ function requestMenu() {
     });
 }
 
-informativesTop();
 requestMenu();
 
 function constructMenuDesktop(json) {
@@ -80,13 +82,13 @@ function constructMenuDesktop(json) {
                   <a href=${subchild.url} class="menu__nav-category-list">${subchild.name}</a>
                 </li>
                 `;
-              })}
+              }).join('')}
               </ul>`
                 : ``
             }
           </li>
           `;
-        })}
+        }).join('')}
       </ul>`
         : ``
     }
@@ -195,13 +197,13 @@ function constructMenuMobile(json) {
                 </div>
               </li>
               `;
-            })}
+            }).join('')}
             </ul>`
               : ``
           }
         </li>
         `;
-      })}
+      }).join('')}
       </ul>
       `
           : ``
@@ -237,3 +239,140 @@ function handlToggleMenu() {
 }
 
 handlToggleMenu();
+//#endregion
+
+//#region DEFERENTIALS
+function constructDifferentials(information) {
+  const $differentialsContainer = document.querySelector(".highlights__wrapper")
+
+  information.map(function (info) {
+    const containerDifferential = document.createElement("div")
+    const iconDifferential = document.createElement("img")
+    const textContainerDifferential = document.createElement("div")
+    const strongDifferential = document.createElement("strong")
+    const spanDifferential = document.createElement("span")
+
+    //* CONTAINER
+    containerDifferential.classList.add("highlights__information")
+    containerDifferential.classList.add("swiper-slide")
+    containerDifferential.classList.add("script")
+
+    //* IMG
+    iconDifferential.classList.add("highlights__information--img")
+    iconDifferential.src = info.src
+    iconDifferential.alt = info.alt
+    iconDifferential.title = info.title
+
+    //* TEXT CONTAINER
+    textContainerDifferential.classList.add("highlights__information--text")
+
+    //* STRONG
+    strongDifferential.classList.add("highlights__information--text-strong")
+    strongDifferential.textContent = info.bold
+
+    //* STRONG
+    spanDifferential.classList.add("highlights__information--text-span")
+    spanDifferential.textContent = info.text
+
+    textContainerDifferential.appendChild(strongDifferential)
+    textContainerDifferential.appendChild(spanDifferential)
+
+    containerDifferential.appendChild(iconDifferential)
+    containerDifferential.appendChild(textContainerDifferential)
+
+    $differentialsContainer.appendChild(containerDifferential) 
+  })
+}
+
+function requestDiferentials() {
+  fetch("../mocks/DIFFERENTIALS.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      constructDifferentials(json);
+    });
+}
+
+requestDiferentials();
+//#region 
+
+//#region PRODUCTS
+function constructShelf(products) {
+  const $productsShelfSwiper = document.querySelector(".shelf__product--swiper")
+  products.map(function (product){
+    const containerProduct = document.createElement("div")
+
+    const productImage = document.createElement("img")
+    const seals = document.createElement("div")
+    const name = document.createElement("h3")
+    const details = document.createElement("span")
+    const priceWrapper = document.createElement("div")
+    const price = document.createElement("span")
+    const priceDetails = document.createElement("span")
+    const button = document.createElement("button")
+
+    //* CONTAINER
+    containerProduct.classList.add("shelf__product")
+    containerProduct.classList.add("swiper-slide")
+
+    //* IMG
+    productImage.classList.add("shelf__product--img")
+    productImage.src = product.image
+    productImage.alt = product.title
+    
+    //* SEALS
+    seals.classList.add("shelf__product--seals")
+    seals.textContent = product.category
+
+    //* PRODUCT NAME
+    name.classList.add("shelf__product--title")
+    name.textContent = product.title
+
+    //* PRODUCT DETAILS
+    details.classList.add("shelf__product--details")
+    details.textContent = "9,73mm x 9,63mm"
+
+    //* WRAPPER
+    priceWrapper.classList.add("shelf__product--wrap")
+    
+    //* PRICE
+    price.classList.add("shelf__product--price")
+    price.textContent = Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(product.price)
+
+    //* PRICE DETAILS
+    priceDetails.classList.add("shelf__product--buy-details")
+    priceDetails.textContent = "Compre em até 8x sem juros"
+
+    //* BUTTON
+    button.classList.add("shelf__product--button")
+    button.textContent = "Comprar"
+
+    priceWrapper.appendChild(price) 
+    priceWrapper.appendChild(priceDetails) 
+    priceWrapper.appendChild(button) 
+
+
+    containerProduct.appendChild(productImage) 
+    containerProduct.appendChild(seals) 
+    containerProduct.appendChild(name) 
+    containerProduct.appendChild(details) 
+    containerProduct.appendChild(priceWrapper) 
+
+    $productsShelfSwiper.appendChild(containerProduct) 
+  })
+}
+
+function requestProducts() {
+  fetch('https://fakestoreapi.com/products').then( function (response) {
+    return response.json()
+  }).then( function (json) {
+    constructShelf(json)
+  })
+}
+
+requestProducts()
+//#endregion
