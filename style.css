@@ -107,6 +107,7 @@ a {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  white-space: nowrap;
 }
 
 @media (min-width: 1024px) {
@@ -134,6 +135,7 @@ a {
   text-align: center;
   font-weight: 700;
   margin-left: 5px;
+  white-space: nowrap;
 }
 
 @media (min-width: 1024px) {
@@ -903,7 +905,7 @@ a {
   color: transparent;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .highlights__information--arrow {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1024,6 +1026,12 @@ a {
   margin-top: 21px;
   max-width: 1173px;
   overflow-y: visible;
+}
+
+@media (max-width: 1024px) {
+  .shelf__products {
+    max-width: 320px;
+  }
 }
 
 .shelf__product {

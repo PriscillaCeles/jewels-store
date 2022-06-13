@@ -14,15 +14,15 @@ import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
       319: {
         slidesPerView: 1,
       },
-      1025: {
+      1024: {
         slidesPerView: 3,
+        spaceBetween: 0,
       },
     }
   })
 
-  const swiper = new Swiper('.highlight-banner', {
+  const swiperBanner = new Swiper('.highlight-banner', {
     direction: 'horizontal',
-    // loop: true,
 
     navigation: {
       nextEl: '.swiper-button-next',
@@ -50,6 +50,9 @@ import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
         slidesPerView: 1,
       },
       1024: {
+        slidesPerView: 2,
+      },
+      1100: {
         slidesPerView: 4,
       },
     }
@@ -67,15 +70,20 @@ import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
     breakpoints: {
       319: {
         slidesPerView: 2,
+        spaceBetween: 10,
       },
       1024: {
         slidesPerView: 7,
+        spaceBetween: 19,
       },
     }
   })
 
   const swiperProducts = new Swiper('.shelf__products', {
     direction: 'horizontal',
+    slidesPerView: 4,
+    spaceBetween: 19,
+    width: 1173,
 
     navigation: {
       nextEl: '.swiper-button-next',
@@ -93,6 +101,9 @@ import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
         slidesPerView: 1,
       },
       1024: {
+        slidesPerView: 3,
+      },
+      1200: {
         slidesPerView: 4,
       },
     }
