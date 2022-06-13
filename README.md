@@ -4,7 +4,7 @@ Project developed during the HallToCode course.
 
 Project to develop a dynamic and responsive e-commerce.
 
-<h3>📑 Using:</h3>
+<h3>📑 I'm developing to improve these concepts:</h3>
 - HTML; </br>
 - CSS;</br>
 - SCSS;</br>
