@@ -4,6 +4,7 @@
 
 * {
   font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 .header {
@@ -21,7 +22,6 @@
     line-height: calculator-rem(16);
 
     &--swiper {
-
       @media (min-width: 1024px) {
         width: 720px;
       }
@@ -32,10 +32,9 @@
       white-space: nowrap;
 
       &.swiper-slide {
-
-      @media (min-width: 1024px) {
-        width: auto !important;
-      }
+        @media (min-width: 1024px) {
+          width: auto !important;
+        }
       }
 
       &::after {
@@ -93,7 +92,6 @@
   }
 
   &__informations-top-wrap {
-
     @media (min-width: 1024px) {
       @include flex();
     }
@@ -208,7 +206,6 @@
     }
 
     &--category-item {
-      
       &:hover {
         .menu__nav-wrapper-subcategory {
           display: block;
@@ -542,9 +539,7 @@
 }
 
 .highlight-banner {
-
   &__img {
-
     @include media-mobile() {
       // height: 408px;
       zoom: 1;
@@ -738,25 +733,79 @@
     max-width: 1173px;
 
     overflow-y: visible;
-    
+
     @include media-mobile() {
       max-width: 320px;
-  }
+    }
   }
 
   &__product {
-    @include flex();
+    @include flex(space-between);
     flex-direction: column;
     width: 240px;
     height: 515px;
 
-    &--swiper {
+    &.slick-slide {
+      display: flex;
+      margin-right: 19px;
+    }
+
+    &--slick {
       width: 1173px;
+
+      .slick-arrow {
+        border: 0;
+        font-size: 0;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        background-color: rgba(141, 148, 186, 0.3);
+        background-image: url(/assets/img/swipper-arrow.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .slick-disabled {
+        background-color: rgba(141, 148, 186, 0.1);
+        opacity: 0.3;
+      }
+
+      .slick-prev {
+        left: -70px;
+      }
+
+      .slick-next {
+        right: -51px;
+        transform: rotate(0.5turn);
+      }
+
+      .slick-dots {
+        @include flex();
+        gap: 8px;
+        margin-top: 44px;
+
+        li button {
+          border: 0;
+          font-size: 0;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: $grey;
+        }
+
+        .slick-active {
+          button {
+            background-color: $lightLilac;
+          }
+        }
+      }
     }
 
     &--img {
       width: 240px;
-      height: 240px
+      height: 240px;
     }
 
     &--seals {
@@ -794,12 +843,13 @@
       font-size: calculator-rem(14);
       line-height: calculator-rem(19);
       flex-grow: 1;
+      text-align: center;
     }
 
     &--wrap {
-    @include flex();
-    flex-direction: column;
-    width: 100%;
+      @include flex();
+      flex-direction: column;
+      width: 100%;
     }
 
     &--price {
@@ -831,38 +881,334 @@
       line-height: calculator-rem(25);
     }
   }
+}
 
-  &__dots {
-    position: static;
-    margin-top: 44px;
+.main-banner {
+  @include flex(space-between);
+  width: 1150px;
+  margin: 88px auto 0;
 
-    .swiper-pagination-bullet {
-      width: 20px;
-      height: 20px;
+  &__text {
+    width: 38.6%;
+    color: $purble;
+    text-align: center;
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 400;
+
+    &--span {
+      text-transform: uppercase;
+      font-size: 18px;
+      line-height: 25px;
     }
 
-    .swiper-pagination-bullet-active {
-      background-color: $lightLilac;
+    &--highlights {
+      text-transform: uppercase;
+      color: $lightLilac;
+      font-family: "Ovo";
+      font-weight: 400;
+      font-size: 42px;
+      line-height: 47px;
+      margin-top: 11px;
+    }
+
+    &--content {
+      margin-top: 15px;
+    }
+
+    &--button {
+      background-color: $white;
+      border: 1px solid $lightLilac;
+      border-radius: 10px;
+      text-transform: uppercase;
+      color: $lightLilac;
+      font-size: 14px;
+      line-height: 19px;
+      margin-top: 40px;
+
+      width: 133px;
+      height: 38px;
     }
   }
 
-  &__arrow {
-    margin: 0;
-    background-color: rgba(141, 148, 186, 0.3);
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
+  &__container-image {
+    @include flex();
+    width: 63.2%;
 
-    &::after {
-      color: $lilac;
+    &--wrapper {
+      width: 500px;
+      height: auto;
     }
 
-    &.swiper-button-disabled {
-      background-color: rgba(141, 148, 186, 0.1);
+    .slick-arrow {
+      border: 0;
+      font-size: 0;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      background-color: rgba(141, 148, 186, 0.3);
+      background-image: url(/assets/img/swipper-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
 
-      &::after {
-        color: $lightLilac;
+      cursor: pointer;
+    }
+
+    .slick-disabled {
+      background-color: rgba(141, 148, 186, 0.1);
+      opacity: 0.3;
+    }
+
+    .slick-prev {
+      left: -70px;
+    }
+
+    .slick-next {
+      right: -70px;
+      transform: rotate(0.5turn);
+    }
+
+    .slick-dots {
+      @include flex();
+      gap: 8px;
+      margin-top: 44px;
+      cursor: pointer;
+
+      li button {
+        border: 0;
+        font-size: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $grey;
       }
+
+      .slick-active {
+        button {
+          background-color: $lightLilac;
+        }
+      }
+    }
+  }
+}
+
+.product-highlights {
+  @include flex(center, top);
+  margin-top: 77px;
+
+  &__element {
+    position: absolute;
+    width: 100vw;
+    height: 274px;
+    background-color: $lightGreen;
+  }
+
+  &__container {
+    @include flex(center, top);
+    flex-direction: column;
+    position: relative;
+    width: 1267px;
+    margin: 0 auto;
+  }
+
+  &__text {
+    width: 44.6%;
+
+    &--title {
+      margin-top: 28px;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 35px;
+      text-transform: uppercase;
+      color: $darkGreen;
+    }
+
+    &--subtitle {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 25px;
+      color: $darkGreen;
+      margin-top: 7px;
+    }
+  }
+
+  &__wrapper {
+    @include flex(space-between);
+  }
+
+  &__image {
+    @include flex(flex-end, center);
+    flex-direction: column;
+    width: 518px;
+    height: 565px;
+    background-image: url(/assets/img/mainBannerEarring.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    color: $white;
+    margin-right: 26px;
+    margin-top: 24px;
+
+    &--strong {
+      width: 300px;
+      font-family: "Ovo";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 50px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    &--text {
+      width: 315px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 44px;
+      margin-top: 15px;
+    }
+  }
+
+  &__products-slick {
+    width: 53.2%;
+
+    .slick-arrow {
+      border: 0;
+      font-size: 0;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      background-color: rgba(141, 148, 186, 0.3);
+      background-image: url(/assets/img/swipper-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .slick-disabled {
+      background-color: rgba(141, 148, 186, 0.1);
+      opacity: 0.3;
+    }
+
+    .slick-prev {
+      left: -60px;
+    }
+
+    .slick-next {
+      right: -60px;
+      transform: rotate(0.5turn);
+    }
+
+    .slick-dots {
+      @include flex();
+      gap: 8px;
+      margin-top: 44px;
+
+      li button {
+        border: 0;
+        font-size: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $grey;
+      }
+
+      .slick-active {
+        button {
+          background-color: $lightLilac;
+        }
+      }
+    }
+  }
+}
+
+.second-main-banner {
+  &__text {
+    &--button {
+      width: 253px;
+    }
+  }
+}
+
+.instafeed {
+  @include flex(center, flex-start);
+  padding: 30px 111px 48px;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid $purpleWithOpacity;
+  border-bottom: 1px solid $purpleWithOpacity;
+  margin-top: 55px;
+
+  &__container {
+    width: 1300px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $mediumGrey;
+
+    &--strong {
+      font-weight: 700;
+    }
+  }
+
+  &__wrapper {
+    @include flex(space-between);
+    width: 100%;
+    margin-top: 13px;
+  }
+
+  &__text {
+    width: 680px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: $purble;
+
+    &--span {
+      font-weight: 300;
+      margin-top: 12px;
+      display: inline-block;
+    }
+  }
+
+  &__social-media {
+    @include flex();
+
+    &__text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: $purble;
+      margin-right: 20px;
+    }
+
+    &--icon {
+      &:first-child{
+        margin-right: 31px;
+      }
+    }
+  }
+
+  &__photos {
+    @include flex(space-between);
+    margin-top: 34px;
+    width: 100%;
+
+    &--item {
+      width: 204px;
+      height: 204px;
+      border-radius: 10px;
+      background-size: contain;
+      background-position: center;
     }
   }
 }

@@ -79,33 +79,4 @@ import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
     }
   })
 
-  const swiperProducts = new Swiper('.shelf__products', {
-    direction: 'horizontal',
-    slidesPerView: 4,
-    spaceBetween: 19,
-    width: 1173,
-
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-
-    pagination: {
-      el: '.shelf__dots',
-      type: 'bullets',
-      clickable: true,
-    },
-
-    breakpoints: {
-      319: {
-        slidesPerView: 1,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-      1200: {
-        slidesPerView: 4,
-      },
-    }
-  })
 

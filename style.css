@@ -2,7 +2,7 @@
 v2.0 | 20110126
 License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700;800&family=Ovo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&family=Ovo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap");
 * {
   font-family: sans-serif;
@@ -62,8 +62,22 @@ a {
   height: inherit;
 }
 
+@font-face {
+  font-family: 'icomoon';
+  src: url("/sass/fonts/icomoon.ttf.css");
+  src: url("/sass/fonts/icomoon.eot.css#iefix") format("embedded-opentype"), url("/sass/fonts/icomoon.woff.css") format("woff");
+}
+
 * {
   font-family: "Open Sans", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("./fonts/icomoon.ttf.css");
+  src: url("./fonts/icomoon.eot.css#iefix") format("embedded-opentype"), url("./fonts/icomoon.woff.css") format("woff");
 }
 
 .header {
@@ -1038,9 +1052,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1052,8 +1066,71 @@ a {
   height: 515px;
 }
 
-.shelf__product--swiper {
+.shelf__product.slick-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 19px;
+}
+
+.shelf__product--slick {
   width: 1173px;
+}
+
+.shelf__product--slick .slick-arrow {
+  border: 0;
+  font-size: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  background-color: rgba(141, 148, 186, 0.3);
+  background-image: url(/assets/img/swipper-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.shelf__product--slick .slick-disabled {
+  background-color: rgba(141, 148, 186, 0.1);
+  opacity: 0.3;
+}
+
+.shelf__product--slick .slick-prev {
+  left: -70px;
+}
+
+.shelf__product--slick .slick-next {
+  right: -51px;
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+
+.shelf__product--slick .slick-dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  margin-top: 44px;
+}
+
+.shelf__product--slick .slick-dots li button {
+  border: 0;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #C4C4C4;
+}
+
+.shelf__product--slick .slick-dots .slick-active button {
+  background-color: #8D94BA;
 }
 
 .shelf__product--img {
@@ -1105,6 +1182,7 @@ a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  text-align: center;
 }
 
 .shelf__product--wrap {
@@ -1153,37 +1231,428 @@ a {
   line-height: 1.5625rem;
 }
 
-.shelf__dots {
-  position: static;
-  margin-top: 44px;
+.main-banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1150px;
+  margin: 88px auto 0;
 }
 
-.shelf__dots .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
+.main-banner__text {
+  width: 38.6%;
+  color: #9A7AA0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 400;
 }
 
-.shelf__dots .swiper-pagination-bullet-active {
-  background-color: #8D94BA;
+.main-banner__text--span {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 25px;
 }
 
-.shelf__arrow {
-  margin: 0;
-  background-color: rgba(141, 148, 186, 0.3);
+.main-banner__text--highlights {
+  text-transform: uppercase;
+  color: #8D94BA;
+  font-family: "Ovo";
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 47px;
+  margin-top: 11px;
+}
+
+.main-banner__text--content {
+  margin-top: 15px;
+}
+
+.main-banner__text--button {
+  background-color: #ffffff;
+  border: 1px solid #8D94BA;
+  border-radius: 10px;
+  text-transform: uppercase;
+  color: #8D94BA;
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 40px;
+  width: 133px;
+  height: 38px;
+}
+
+.main-banner__container-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 63.2%;
+}
+
+.main-banner__container-image--wrapper {
+  width: 500px;
+  height: auto;
+}
+
+.main-banner__container-image .slick-arrow {
+  border: 0;
+  font-size: 0;
   width: 58px;
   height: 58px;
   border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  background-color: rgba(141, 148, 186, 0.3);
+  background-image: url(/assets/img/swipper-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
 }
 
-.shelf__arrow::after {
-  color: #542D84;
-}
-
-.shelf__arrow.swiper-button-disabled {
+.main-banner__container-image .slick-disabled {
   background-color: rgba(141, 148, 186, 0.1);
+  opacity: 0.3;
 }
 
-.shelf__arrow.swiper-button-disabled::after {
-  color: #8D94BA;
+.main-banner__container-image .slick-prev {
+  left: -70px;
+}
+
+.main-banner__container-image .slick-next {
+  right: -70px;
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+
+.main-banner__container-image .slick-dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  margin-top: 44px;
+  cursor: pointer;
+}
+
+.main-banner__container-image .slick-dots li button {
+  border: 0;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #C4C4C4;
+}
+
+.main-banner__container-image .slick-dots .slick-active button {
+  background-color: #8D94BA;
+}
+
+.product-highlights {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
+  margin-top: 77px;
+}
+
+.product-highlights__element {
+  position: absolute;
+  width: 100vw;
+  height: 274px;
+  background-color: #B4EDD2;
+}
+
+.product-highlights__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  width: 1267px;
+  margin: 0 auto;
+}
+
+.product-highlights__text {
+  width: 44.6%;
+}
+
+.product-highlights__text--title {
+  margin-top: 28px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 35px;
+  text-transform: uppercase;
+  color: #3D4F46;
+}
+
+.product-highlights__text--subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #3D4F46;
+  margin-top: 7px;
+}
+
+.product-highlights__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.product-highlights__image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 518px;
+  height: 565px;
+  background-image: url(/assets/img/mainBannerEarring.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  color: #ffffff;
+  margin-right: 26px;
+  margin-top: 24px;
+}
+
+.product-highlights__image--strong {
+  width: 300px;
+  font-family: "Ovo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.product-highlights__image--text {
+  width: 315px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 44px;
+  margin-top: 15px;
+}
+
+.product-highlights__products-slick {
+  width: 53.2%;
+}
+
+.product-highlights__products-slick .slick-arrow {
+  border: 0;
+  font-size: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  background-color: rgba(141, 148, 186, 0.3);
+  background-image: url(/assets/img/swipper-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.product-highlights__products-slick .slick-disabled {
+  background-color: rgba(141, 148, 186, 0.1);
+  opacity: 0.3;
+}
+
+.product-highlights__products-slick .slick-prev {
+  left: -60px;
+}
+
+.product-highlights__products-slick .slick-next {
+  right: -60px;
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+
+.product-highlights__products-slick .slick-dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  margin-top: 44px;
+}
+
+.product-highlights__products-slick .slick-dots li button {
+  border: 0;
+  font-size: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #C4C4C4;
+}
+
+.product-highlights__products-slick .slick-dots .slick-active button {
+  background-color: #8D94BA;
+}
+
+.second-main-banner__text--button {
+  width: 253px;
+}
+
+.instafeed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 30px 111px 48px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  border-top: 1px solid rgba(138, 108, 143, 0.1);
+  border-bottom: 1px solid rgba(138, 108, 143, 0.1);
+  margin-top: 55px;
+}
+
+.instafeed__container {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.instafeed__title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: #5C5762;
+}
+
+.instafeed__title--strong {
+  font-weight: 700;
+}
+
+.instafeed__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: 13px;
+}
+
+.instafeed__text {
+  width: 680px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #9A7AA0;
+}
+
+.instafeed__text--span {
+  font-weight: 300;
+  margin-top: 12px;
+  display: inline-block;
+}
+
+.instafeed__social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.instafeed__social-media__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #9A7AA0;
+  margin-right: 20px;
+}
+
+.instafeed__social-media--icon:first-child {
+  margin-right: 31px;
+}
+
+.instafeed__photos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 34px;
+  width: 100%;
+}
+
+.instafeed__photos--item {
+  width: 204px;
+  height: 204px;
+  border-radius: 10px;
+  background-size: contain;
+  background-position: center;
 }
 /*# sourceMappingURL=style.css.map */

@@ -7,7 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/plugins/slick.css">
   <link rel="stylesheet" href="./style.css">
+
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
+  <script type="module" src="/plugins/slick.min.js" defer></script>
   <script type="module" src="./script/swiper-carrousel.js" defer></script>
   <script type="text/javascript" src="./script/index.js" defer></script>
 
@@ -208,28 +213,108 @@
       </div>
       <div class="swiper-pagination stones__item--dots"></div>
     </section>
+
     <section class="shelf">
       <h2 class="shelf__title">Nossos <strong class="shelf__title--strong">lançmentos</strong></h2>
-      <div class="shelf__products  swiper">
-        <div class=" shelf__product--swiper swiper-wrapper">
-          <!-- <div class="shelf__product swiper-slide">
-          <img src="./assets/img/esmeraldas.png" class="shelf__product--img">
-          <div class="shelf__product--seals">
-            <span class="shelf__products--seals-text">Novidade</span>
-          </div>
-          <h3 class="shelf__product--title">Esmeralda</h3>
-          <span class="shelf__product--details">9,73mm x 9,63mm</span>
-          <div class="shelf__product--wrap">
-            <span class="shelf__product--price">R$ 374,00</span>
-            <span class="shelf__product--buy-details">Compre em até 8x sem juros</span>
-            <button class="shelf__product--button">Comprar</button>
-          </div>
-        </div> -->
-        </div>
-        <div class="swiper-button-prev shelf__arrow"></div>
-        <div class="swiper-button-next shelf__arrow"></div>
+      <div class="shelf__products">
+        <div class="shelf__product--slick shelf__product--first-slick"></div>
       </div>
-      <div class="swiper-pagination shelf__dots"></div>
+    </section>
+
+    <section class="main-banner">
+      <div class="main-banner__text">
+        <span class="main-banner__text--span">mais que uma pedra preciosa</span>
+        <h3 class="main-banner__text--highlights">Preciosa para você</h3>
+        <p class="main-banner__text--content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus ullamcorper sagittis. Nullam
+          semper vitae nisl sit amet auctor. Pellentesque lectus arcu, dignissim non fermentum vitae, dictum id nisi.
+          Morbi ut imperdiet dolor. Nunc laoreet
+        </p>
+        <button class="main-banner__text--button">saiba mais</button>
+      </div>
+      <div class="main-banner__container-image">
+        <div class="main-banner__container-image--wrapper">
+          <img class="main-banner__container-image--img" src="/assets/img/hands.png"
+            title="Duas maos com aneis solitario de diamante na dedo anelar"
+            alt="Duas maos com aneis solitario de diamante na dedo anelar">
+          <img class="main-banner__container-image--img" src="/assets/img/hands.png"
+            title="Duas maos com aneis solitario de diamante na dedo anelar"
+            alt="Duas maos com aneis solitario de diamante na dedo anelar">
+          <img class="main-banner__container-image--img" src="/assets/img/hands.png"
+            title="Duas maos com aneis solitario de diamante na dedo anelar"
+            alt="Duas maos com aneis solitario de diamante na dedo anelar">
+        </div>
+      </div>
+    </section>
+
+    <section class="shelf">
+      <h2 class="shelf__title">Qualidade com os <strong class="shelf__title--strong">melhores preços</strong></h2>
+      <div class="shelf__products">
+        <div class="shelf__product--slick shelf__product--second-slick"></div>
+      </div>
+    </section>
+
+    <section class="product-highlights">
+      <span class="product-highlights__element"></span>
+      <div class="product-highlights__container">
+        <div class="product-highlights__text">
+          <h3 class="product-highlights__text--title">Destaques</h3>
+          <p class="product-highlights__text--subtitle">Geas selecionadas para você</p>
+        </div>
+
+        <div class="product-highlights__wrapper">
+          <div class="product-highlights__image">
+            <strong class="product-highlights__image--strong">Turmalina Prata</strong>
+            <p class="product-highlights__image--text""> A pedra preciosa mais cobiçada, rara e encantadora do mundo, ao seu alcance.</p>
+          </div>
+
+          <div class=" product-highlights__products-slick">
+            <div class="product-highlights__products"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="main-banner second-main-banner">
+      <div class="main-banner__text">
+        <span class="main-banner__text--span">uma história de gerações</span>
+        <h3 class="main-banner__text--highlights">Nossas origens</h3>
+        <p class="main-banner__text--content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus ullamcorper sagittis. Nullam
+          semper vitae nisl sit amet auctor. Pellentesque lectus arcu, dignissim non fermentum vitae, dictum id nisi.
+          Morbi ut imperdiet dolor. Nunc laoreet
+        </p>
+        <button class="main-banner__text--button second-main-banner__text--button">conheça nossa história</button>
+      </div>
+      <div class="main-banner__container-image">
+        <img class="main-banner__container-image--img" src="/assets/img/grotto.png"
+          title="Fotografia de uma gruta com água translucida azulada"
+          alt="Fotografia de uma gruta com água translucida azulada">
+      </div>
+    </section>
+
+    <section class="instafeed">
+      <div class="instafeed__container">
+        <h3 class="instafeed__title">Siga a <strong class="instfeed__title--strong">@HTC</strong></h3>
+        <div class="instafeed__wrapper">
+          <p class="instafeed__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus ullamcorper sagittis. Nullam
+            semper vitae nisl sit amet auctor. Pellentesque lectus arcu, htc.
+            <span class="instafeed__text--span">#htc #gemasepedras #pedraspreciosas</span>
+          </p>
+          <div class="instafeed__social-media">
+            <span class="instafeed__social-media__text">Siga-nos</span>
+            <a href="/"><img class="instafeed__social-media--icon" src="/assets/img/Facebook_ico.svg"></a>
+            <a href="/"><img class="instafeed__social-media--icon" src="/assets/img/insta-logo.svg"></a>
+          </div>
+        </div>
+        <div class="instafeed__photos"></div>
+      </div>
+    </section>
+
+    <section class="store-highlights">
+      <div class="store-highlights__wrapper">
+      </div>
+      </div>
     </section>
   </main>
 </body>

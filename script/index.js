@@ -255,7 +255,6 @@ function constructDifferentials(information) {
     //* CONTAINER
     containerDifferential.classList.add("highlights__information")
     containerDifferential.classList.add("swiper-slide")
-    containerDifferential.classList.add("script")
 
     //* IMG
     iconDifferential.classList.add("highlights__information--img")
@@ -298,8 +297,35 @@ requestDiferentials();
 //#region 
 
 //#region PRODUCTS
+function slickshelf(){
+  $('.shelf__product--first-slick').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    dots: true,
+    infinite: false,
+  });
+}
+
+function secondSlickShelf(){
+  $('.shelf__product--second-slick').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    dots: true,
+    infinite: false,
+  });
+}
+
+function thirdSlickShelf(){
+  $('.product-highlights__products').slick({
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    dots: true,
+    infinite: false,
+  });
+}
+
 function constructShelf(products) {
-  const $productsShelfSwiper = document.querySelector(".shelf__product--swiper")
+  const $productsShelfSwiper = document.querySelector(".shelf__product--first-slick")
   products.map(function (product){
     const containerProduct = document.createElement("div")
 
@@ -314,7 +340,6 @@ function constructShelf(products) {
 
     //* CONTAINER
     containerProduct.classList.add("shelf__product")
-    containerProduct.classList.add("swiper-slide")
 
     //* IMG
     productImage.classList.add("shelf__product--img")
@@ -364,6 +389,146 @@ function constructShelf(products) {
 
     $productsShelfSwiper.appendChild(containerProduct) 
   })
+  slickshelf()
+
+}
+
+function constructSecondShelf(products) {
+  const $productsShelfSlick = document.querySelector(".shelf__product--second-slick")
+  products.map(function (product){
+    const containerProduct = document.createElement("div")
+
+    const productImage = document.createElement("img")
+    const seals = document.createElement("div")
+    const name = document.createElement("h3")
+    const details = document.createElement("span")
+    const priceWrapper = document.createElement("div")
+    const price = document.createElement("span")
+    const priceDetails = document.createElement("span")
+    const button = document.createElement("button")
+
+    //* CONTAINER
+    containerProduct.classList.add("shelf__product")
+
+    //* IMG
+    productImage.classList.add("shelf__product--img")
+    productImage.src = product.image
+    productImage.alt = product.title
+    
+    //* SEALS
+    seals.classList.add("shelf__product--seals")
+    seals.textContent = product.category
+
+    //* PRODUCT NAME
+    name.classList.add("shelf__product--title")
+    name.textContent = product.title
+
+    //* PRODUCT DETAILS
+    details.classList.add("shelf__product--details")
+    details.textContent = "9,73mm x 9,63mm"
+
+    //* WRAPPER
+    priceWrapper.classList.add("shelf__product--wrap")
+    
+    //* PRICE
+    price.classList.add("shelf__product--price")
+    price.textContent = Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(product.price)
+
+    //* PRICE DETAILS
+    priceDetails.classList.add("shelf__product--buy-details")
+    priceDetails.textContent = "Compre em até 8x sem juros"
+
+    //* BUTTON
+    button.classList.add("shelf__product--button")
+    button.textContent = "Comprar"
+
+    priceWrapper.appendChild(price) 
+    priceWrapper.appendChild(priceDetails) 
+    priceWrapper.appendChild(button) 
+
+
+    containerProduct.appendChild(productImage) 
+    containerProduct.appendChild(seals) 
+    containerProduct.appendChild(name) 
+    containerProduct.appendChild(details) 
+    containerProduct.appendChild(priceWrapper) 
+
+    $productsShelfSlick.appendChild(containerProduct) 
+  })
+
+  secondSlickShelf()
+}
+
+function constructThirdShelf(products) {
+  const $productsShelfSlick = document.querySelector(".product-highlights__products")
+  products.map(function (product){
+    const containerProduct = document.createElement("div")
+
+    const productImage = document.createElement("img")
+    const seals = document.createElement("div")
+    const name = document.createElement("h3")
+    const details = document.createElement("span")
+    const priceWrapper = document.createElement("div")
+    const price = document.createElement("span")
+    const priceDetails = document.createElement("span")
+    const button = document.createElement("button")
+
+    //* CONTAINER
+    containerProduct.classList.add("shelf__product")
+
+    //* IMG
+    productImage.classList.add("shelf__product--img")
+    productImage.src = product.image
+    productImage.alt = product.title
+    
+    //* SEALS
+    seals.classList.add("shelf__product--seals")
+    seals.textContent = product.category
+
+    //* PRODUCT NAME
+    name.classList.add("shelf__product--title")
+    name.textContent = product.title
+
+    //* PRODUCT DETAILS
+    details.classList.add("shelf__product--details")
+    details.textContent = "9,73mm x 9,63mm"
+
+    //* WRAPPER
+    priceWrapper.classList.add("shelf__product--wrap")
+    
+    //* PRICE
+    price.classList.add("shelf__product--price")
+    price.textContent = Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(product.price)
+
+    //* PRICE DETAILS
+    priceDetails.classList.add("shelf__product--buy-details")
+    priceDetails.textContent = "Compre em até 8x sem juros"
+
+    //* BUTTON
+    button.classList.add("shelf__product--button")
+    button.textContent = "Comprar"
+
+    priceWrapper.appendChild(price) 
+    priceWrapper.appendChild(priceDetails) 
+    priceWrapper.appendChild(button) 
+
+
+    containerProduct.appendChild(productImage) 
+    containerProduct.appendChild(seals) 
+    containerProduct.appendChild(name) 
+    containerProduct.appendChild(details) 
+    containerProduct.appendChild(priceWrapper) 
+
+    $productsShelfSlick.appendChild(containerProduct) 
+  })
+
+  thirdSlickShelf()
 }
 
 function requestProducts() {
@@ -371,8 +536,48 @@ function requestProducts() {
     return response.json()
   }).then( function (json) {
     constructShelf(json)
+    constructSecondShelf(json)
+    constructThirdShelf(json)
   })
 }
 
 requestProducts()
+//#endregion
+
+function slickMainBanner(){
+  $('.main-banner__container-image--wrapper').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+  });
+}
+
+slickMainBanner()
+
+//#region //**INSTAGRAM */
+function constructInstafedd(photos) {
+  const instaContainer = document.querySelector(".instafeed__photos")
+
+  photos.map((photo) => {
+    const instaImageContainer = document.createElement("span");
+    const instaImage = document.createElement("img");
+
+    instaImageContainer.classList.add("instafeed__photos--item")
+    instaImageContainer.style.backgroundImage = "url(" + photo.mediaUrl + ")";
+
+    instaImage.src = photo.mediaUrl;
+
+    instaContainer.appendChild(instaImageContainer)
+  })
+}
+
+function instafeed() {
+  fetch('https://feeds.behold.so/vjD34JOXZEZkccGfIKJs')
+  .then(data => data.json())
+  .then(photos => {
+    constructInstafedd(photos)
+  });
+}
+
+instafeed()
 //#endregion
