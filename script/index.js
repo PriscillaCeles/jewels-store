@@ -1,4 +1,31 @@
-function constructInformativesTop(json) {
+function slickInformativeTop(){
+  $('.header__informations-top-wrap').slick({
+    slidesToShow: 3,
+    dots: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
+  });
+}
+
+function constructInformativeTop(json) {
   const $headerInformation = document.querySelector(
     ".header__informations-top-wrap"
   );
@@ -7,7 +34,7 @@ function constructInformativesTop(json) {
     $headerInformation.innerHTML += `
       <span class="header__informations-top--text${
         completeText.firstBoldType ? "-highlight" : ""
-      } swiper-slide">${completeText.text}
+      }">${completeText.text}
         <strong class="header__informations-top--text${
           completeText.firstBoldType === false ? "-highlight" : "-margin"
         }">${completeText.bold}</strong>
@@ -15,19 +42,21 @@ function constructInformativesTop(json) {
       </span>
     `;
   }
+
+  slickInformativeTop()
 }
 
-function informativesTop() {
+function informativeTop() {
   fetch("./mocks/INFORMATIVES_TOP.json")
     .then(function (response) {
       return response.json();
     })
     .then(function (json) {
-      constructInformativesTop(json);
+      constructInformativeTop(json);
     });
 }
 
-informativesTop();
+informativeTop();
 
 
 //#region MENU
@@ -242,6 +271,34 @@ handlToggleMenu();
 //#endregion
 
 //#region DEFERENTIALS
+function slickDifferentials(){
+  $('.highlights__wrapper').slick({
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    dots: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
+  });
+}
+
 function constructDifferentials(information) {
   const $differentialsContainer = document.querySelector(".highlights__wrapper")
 
@@ -254,7 +311,6 @@ function constructDifferentials(information) {
 
     //* CONTAINER
     containerDifferential.classList.add("highlights__information")
-    containerDifferential.classList.add("swiper-slide")
 
     //* IMG
     iconDifferential.classList.add("highlights__information--img")
@@ -281,6 +337,8 @@ function constructDifferentials(information) {
 
     $differentialsContainer.appendChild(containerDifferential) 
   })
+
+  slickDifferentials()
 }
 
 function requestDiferentials() {
@@ -303,6 +361,26 @@ function slickshelf(){
     slidesToScroll: 4,
     dots: true,
     infinite: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
   });
 }
 
@@ -312,6 +390,26 @@ function secondSlickShelf(){
     slidesToScroll: 4,
     dots: true,
     infinite: false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
   });
 }
 
@@ -321,6 +419,14 @@ function thirdSlickShelf(){
     slidesToScroll: 2,
     dots: true,
     infinite: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+    ]
   });
 }
 
@@ -543,6 +649,48 @@ function requestProducts() {
 
 requestProducts()
 //#endregion
+
+//#region //** SLICK */
+function slickBanner(){
+  $('.highlight-banner__wrapper').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: true,
+  });
+}
+
+slickBanner()
+
+function slickStones(){
+  $('.stones__items').slick({
+    slidesToShow: 7,
+    slidesToScroll: 7,
+    dots: true,
+    arrows:false,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 5,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+    ]
+  });
+}
+
+slickStones()
 
 function slickMainBanner(){
   $('.main-banner__container-image--wrapper').slick({

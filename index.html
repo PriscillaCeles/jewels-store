@@ -6,14 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="/plugins/slick.css">
   <link rel="stylesheet" href="./style.css">
 
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
   <script type="module" src="/plugins/slick.min.js" defer></script>
-  <script type="module" src="./script/swiper-carrousel.js" defer></script>
   <script type="text/javascript" src="./script/index.js" defer></script>
 
   <title> HTC | Loja de Joias </title>
@@ -22,11 +20,9 @@
 <body>
   <header class="header">
     <section class="header__informations-top">
-      <div class="header__informations-top--swiper swiper">
-        <div class="header__informations-top-wrap swiper-wrapper">
+      <div class="header__informations-top--swiper">
+        <div class="header__informations-top-wrap">
         </div>
-        <div class="swiper-button-prev header__informations-top--arrow"></div>
-        <div class="swiper-button-next header__informations-top--arrow"></div>
       </div>
     </section>
     <div class="menu__wrap">
@@ -92,8 +88,8 @@
     </div>
   </header>
   <main class="body">
-    <section class="highlight-banner swiper">
-      <div class="swiper-wrapper">
+    <section class="highlight-banner">
+      <div class="highlight-banner__wrapper">
         <img class="highlight-banner__img swiper-slide" src="./assets/img/banner.png" alt="Anel ouro branco e diamantes"
           title="Imagem de um anel em ouro branco com diamantes">
         <img class="highlight-banner__img swiper-slide" src="./assets/img/banner.png" alt="Anel ouro branco e diamantes"
@@ -101,12 +97,9 @@
         <img class="highlight-banner__img swiper-slide" src="./assets/img/banner.png" alt="Anel ouro branco e diamantes"
           title="Imagem de um anel em ouro branco com diamantes">
       </div>
-      <div class="swiper-pagination highlight-banner__dot"></div>
-      <div class="swiper-button-prev highlight-banner__arrow"></div>
-      <div class="swiper-button-next highlight-banner__arrow"></div>
     </section>
-    <section class="highlights swiper">
-      <div class="highlights__wrapper swiper-wrapper">
+    <section class="highlights">
+      <div class="highlights__wrapper">
         <!-- <div class="highlights__information swiper-slide">
           <img src="./assets/img/padlock.png" alt="ícone de cadeado"
             title="Cadeado em branco composto por um retângulo vazado e um arco centralizado no top">
@@ -140,70 +133,68 @@
             <span class="highlights__information--text-span">Certificação de autenticidade ENE2ESE</span>
           </div> -->
       </div>
-      </div>
-      <div class="swiper-button-prev highlights__information--arrow"></div>
-      <div class="swiper-button-next highlights__information--arrow"></div>
+
     </section>
-    <section class="stones  swiper">
+    <section class="stones">
       <h2 class="stones__title">Nossas <strong class="stones__title--strong">variedade</strong> de pedras preciosas</h2>
-      <div class="stones__items swiper-wrapper">
-        <div class="stones__item swiper-slide">
+      <div class="stones__items">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/aqua-marinha.png" class="stones__item--img" alt="Pedra preciosa - Água Marinha"
               title="Imagem de uma pedra preciosa (Água Marinha) lapidadda">
             <span class="stones__item--name">Água Marinha</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/ametista.png" class="stones__item--img" alt="Pedra preciosa - Ametista"
               title="Imagem de uma pedra preciosa (Ametista) lapidadda">
             <span class="stones__item--name">Amestita</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/berilo-amarelo.png" class="stones__item--img" alt="Pedra preciosa - Berilo Amarelo"
               title="Imagem de uma pedra preciosa (Berilo Amarelo) lapidadda">
             <span class="stones__item--name">Berilo Amarelo</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/berilo-verde.png" class="stones__item--img" alt="Pedra preciosa - Berilo Verde"
               title="Imagem de uma pedra preciosa (Berilo Verde) lapidadda">
             <span class="stones__item--name">Berilo Verde</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/citrino.png" class="stones__item--img" alt="Pedra preciosa - Citrino"
               title="Imagem de uma pedra preciosa (Citrino) lapidadda">
             <span class="stones__item--name">Citrino</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/esmeralda.png" class="stones__item--img" alt="Pedra preciosa - Esmeralda"
               title="Imagem de uma pedra preciosa (Esmeralda) lapidadda">
             <span class="stones__item--name">Esmeralda</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/kurzita.png" class="stones__item--img" alt="Pedra preciosa - Kunzita"
               title="Imagem de uma pedra preciosa (Kunzita) lapidadda">
             <span class="stones__item--name">Kunzita</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/kurzita.png" class="stones__item--img" alt="Pedra preciosa - Kunzita"
               title="Imagem de uma pedra preciosa (Kunzita) lapidadda">
             <span class="stones__item--name">Kunzita</span>
           </a>
         </div>
-        <div class="stones__item swiper-slide">
+        <div class="stones__item ">
           <a href="#" class="stones__item--link">
             <img src="./assets/img/kurzita.png" class="stones__item--img" alt="Pedra preciosa - Kunzita"
               title="Imagem de uma pedra preciosa (Kunzita) lapidadda">
