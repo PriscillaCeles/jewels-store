@@ -1,27 +1,29 @@
-function slickInformativeTop(){
-  $('.header__informations-top-wrap').slick({
-    slidesToShow: 3,
-    dots: false,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-        }
-      },
-    ]
+function slickInformativeTop() {
+  $(document).ready(function () {
+    $(".header__informations-top-wrap").slick({
+      slidesToShow: 3,
+      dots: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
   });
 }
 
@@ -43,7 +45,7 @@ function constructInformativeTop(json) {
     `;
   }
 
-  slickInformativeTop()
+  slickInformativeTop();
 }
 
 function informativeTop() {
@@ -57,7 +59,6 @@ function informativeTop() {
 }
 
 informativeTop();
-
 
 //#region MENU
 function requestMenu() {
@@ -95,8 +96,9 @@ function constructMenuDesktop(json) {
       <ul class="menu__nav-wrapper-category ${
         menu.name === `Turmalina` ? `menu__nav-wrapper-category--color` : ``
       } ${menu.name === `Outros` ? `menu__nav-wrapper-scrollbar` : ``}">
-        ${menu.children.map(function (child) {
-          return `
+        ${menu.children
+          .map(function (child) {
+            return `
           <li class="menu__nav-wrapper menu__nav-wrapper--category-item">
             <a href=${
               child.url
@@ -105,19 +107,22 @@ function constructMenuDesktop(json) {
               child.children
                 ? `
               <ul class=" menu__nav-wrapper-subcategory">
-              ${child.children.map(function (subchild) {
-                return `
+              ${child.children
+                .map(function (subchild) {
+                  return `
                 <li class="menu__nav-wrapper subcategory-list">
                   <a href=${subchild.url} class="menu__nav-category-list">${subchild.name}</a>
                 </li>
                 `;
-              }).join('')}
+                })
+                .join("")}
               </ul>`
                 : ``
             }
           </li>
           `;
-        }).join('')}
+          })
+          .join("")}
       </ul>`
         : ``
     }
@@ -195,8 +200,9 @@ function constructMenuMobile(json) {
         menu.children
           ? `
       <ul class="menu__mobile-nav-category ">
-      ${menu.children.map(function (child) {
-        return `
+      ${menu.children
+        .map(function (child) {
+          return `
         <li class="menu__mobile-nav-category--items">
           <div class="menu__mobile-nav-wrapper menu__mobile-nav-wrapper-category">
             <a href=${
@@ -218,21 +224,24 @@ function constructMenuMobile(json) {
             child.children
               ? `
               <ul class=" menu__mobile-nav-subcategory">
-            ${child.children.map(function (subchild) {
-              return `
+            ${child.children
+              .map(function (subchild) {
+                return `
               <li class="menu__mobile-nav-subcategory--items">
                 <div class="menu__mobile-nav-wrapper menu__mobile-nav-wrapper-subcategory">
                   <a href=${subchild.url} class="menu__mobile-nav--item menu__mobile-nav-subcategory--item">${subchild.name}</a>
                 </div>
               </li>
               `;
-            }).join('')}
+              })
+              .join("")}
             </ul>`
               : ``
           }
         </li>
         `;
-      }).join('')}
+        })
+        .join("")}
       </ul>
       `
           : ``
@@ -271,74 +280,78 @@ handlToggleMenu();
 //#endregion
 
 //#region DEFERENTIALS
-function slickDifferentials(){
-  $('.highlights__wrapper').slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    dots: false,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-        }
-      },
-    ]
+function slickDifferentials() {
+  $(document).ready(function () {
+    $(".highlights__wrapper").slick({
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      dots: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
   });
 }
 
 function constructDifferentials(information) {
-  const $differentialsContainer = document.querySelector(".highlights__wrapper")
+  const $differentialsContainer = document.querySelector(
+    ".highlights__wrapper"
+  );
 
   information.map(function (info) {
-    const containerDifferential = document.createElement("div")
-    const iconDifferential = document.createElement("img")
-    const textContainerDifferential = document.createElement("div")
-    const strongDifferential = document.createElement("strong")
-    const spanDifferential = document.createElement("span")
+    const containerDifferential = document.createElement("div");
+    const iconDifferential = document.createElement("img");
+    const textContainerDifferential = document.createElement("div");
+    const strongDifferential = document.createElement("strong");
+    const spanDifferential = document.createElement("span");
 
     //* CONTAINER
-    containerDifferential.classList.add("highlights__information")
+    containerDifferential.classList.add("highlights__information");
 
     //* IMG
-    iconDifferential.classList.add("highlights__information--img")
-    iconDifferential.src = info.src
-    iconDifferential.alt = info.alt
-    iconDifferential.title = info.title
+    iconDifferential.classList.add("highlights__information--img");
+    iconDifferential.src = info.src;
+    iconDifferential.alt = info.alt;
+    iconDifferential.title = info.title;
 
     //* TEXT CONTAINER
-    textContainerDifferential.classList.add("highlights__information--text")
+    textContainerDifferential.classList.add("highlights__information--text");
 
     //* STRONG
-    strongDifferential.classList.add("highlights__information--text-strong")
-    strongDifferential.textContent = info.bold
+    strongDifferential.classList.add("highlights__information--text-strong");
+    strongDifferential.textContent = info.bold;
 
     //* STRONG
-    spanDifferential.classList.add("highlights__information--text-span")
-    spanDifferential.textContent = info.text
+    spanDifferential.classList.add("highlights__information--text-span");
+    spanDifferential.textContent = info.text;
 
-    textContainerDifferential.appendChild(strongDifferential)
-    textContainerDifferential.appendChild(spanDifferential)
+    textContainerDifferential.appendChild(strongDifferential);
+    textContainerDifferential.appendChild(spanDifferential);
 
-    containerDifferential.appendChild(iconDifferential)
-    containerDifferential.appendChild(textContainerDifferential)
+    containerDifferential.appendChild(iconDifferential);
+    containerDifferential.appendChild(textContainerDifferential);
 
-    $differentialsContainer.appendChild(containerDifferential) 
-  })
+    $differentialsContainer.appendChild(containerDifferential);
+  });
 
-  slickDifferentials()
+  slickDifferentials();
 }
 
 function requestDiferentials() {
@@ -352,380 +365,396 @@ function requestDiferentials() {
 }
 
 requestDiferentials();
-//#region 
+//#region
 
 //#region PRODUCTS
-function slickshelf(){
-  $('.shelf__product--first-slick').slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    dots: true,
-    infinite: false,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-        }
-      },
-    ]
+function slickshelf() {
+  $(document).ready(function () {
+    $(".shelf__product--first-slick").slick({
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      dots: true,
+      infinite: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
   });
 }
 
-function secondSlickShelf(){
-  $('.shelf__product--second-slick').slick({
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    dots: true,
-    infinite: false,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-        }
-      },
-    ]
+function secondSlickShelf() {
+  $(document).ready(function () {
+    $(".shelf__product--second-slick").slick({
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      dots: true,
+      infinite: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
   });
 }
 
-function thirdSlickShelf(){
-  $('.product-highlights__products').slick({
-    slidesToShow: 2,
-    slidesToScroll: 2,
-    dots: true,
-    infinite: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-        }
-      },
-    ]
+function thirdSlickShelf() {
+  $(document).ready(function () {
+    $(".product-highlights__products").slick({
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      dots: true,
+      infinite: false,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    });
   });
 }
 
 function constructShelf(products) {
-  const $productsShelfSwiper = document.querySelector(".shelf__product--first-slick")
-  products.map(function (product){
-    const containerProduct = document.createElement("div")
+  const $productsShelfSwiper = document.querySelector(
+    ".shelf__product--first-slick"
+  );
+  products.map(function (product) {
+    const containerProduct = document.createElement("div");
 
-    const productImage = document.createElement("img")
-    const seals = document.createElement("div")
-    const name = document.createElement("h3")
-    const details = document.createElement("span")
-    const priceWrapper = document.createElement("div")
-    const price = document.createElement("span")
-    const priceDetails = document.createElement("span")
-    const button = document.createElement("button")
+    const productImage = document.createElement("img");
+    const seals = document.createElement("div");
+    const name = document.createElement("h3");
+    const details = document.createElement("span");
+    const priceWrapper = document.createElement("div");
+    const price = document.createElement("span");
+    const priceDetails = document.createElement("span");
+    const button = document.createElement("button");
 
     //* CONTAINER
-    containerProduct.classList.add("shelf__product")
+    containerProduct.classList.add("shelf__product");
 
     //* IMG
-    productImage.classList.add("shelf__product--img")
-    productImage.src = product.image
-    productImage.alt = product.title
-    
+    productImage.classList.add("shelf__product--img");
+    productImage.src = product.image;
+    productImage.alt = product.title;
+
     //* SEALS
-    seals.classList.add("shelf__product--seals")
-    seals.textContent = product.category
+    seals.classList.add("shelf__product--seals");
+    seals.textContent = product.category;
 
     //* PRODUCT NAME
-    name.classList.add("shelf__product--title")
-    name.textContent = product.title
+    name.classList.add("shelf__product--title");
+    name.textContent = product.title;
 
     //* PRODUCT DETAILS
-    details.classList.add("shelf__product--details")
-    details.textContent = "9,73mm x 9,63mm"
+    details.classList.add("shelf__product--details");
+    details.textContent = "9,73mm x 9,63mm";
 
     //* WRAPPER
-    priceWrapper.classList.add("shelf__product--wrap")
-    
+    priceWrapper.classList.add("shelf__product--wrap");
+
     //* PRICE
-    price.classList.add("shelf__product--price")
-    price.textContent = Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(product.price)
+    price.classList.add("shelf__product--price");
+    price.textContent = Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(product.price);
 
     //* PRICE DETAILS
-    priceDetails.classList.add("shelf__product--buy-details")
-    priceDetails.textContent = "Compre em até 8x sem juros"
+    priceDetails.classList.add("shelf__product--buy-details");
+    priceDetails.textContent = "Compre em até 8x sem juros";
 
     //* BUTTON
-    button.classList.add("shelf__product--button")
-    button.textContent = "Comprar"
+    button.classList.add("shelf__product--button");
+    button.textContent = "Comprar";
 
-    priceWrapper.appendChild(price) 
-    priceWrapper.appendChild(priceDetails) 
-    priceWrapper.appendChild(button) 
+    priceWrapper.appendChild(price);
+    priceWrapper.appendChild(priceDetails);
+    priceWrapper.appendChild(button);
 
+    containerProduct.appendChild(productImage);
+    containerProduct.appendChild(seals);
+    containerProduct.appendChild(name);
+    containerProduct.appendChild(details);
+    containerProduct.appendChild(priceWrapper);
 
-    containerProduct.appendChild(productImage) 
-    containerProduct.appendChild(seals) 
-    containerProduct.appendChild(name) 
-    containerProduct.appendChild(details) 
-    containerProduct.appendChild(priceWrapper) 
-
-    $productsShelfSwiper.appendChild(containerProduct) 
-  })
-  slickshelf()
-
+    $productsShelfSwiper.appendChild(containerProduct);
+  });
+  slickshelf();
 }
 
 function constructSecondShelf(products) {
-  const $productsShelfSlick = document.querySelector(".shelf__product--second-slick")
-  products.map(function (product){
-    const containerProduct = document.createElement("div")
+  const $productsShelfSlick = document.querySelector(
+    ".shelf__product--second-slick"
+  );
+  products.map(function (product) {
+    const containerProduct = document.createElement("div");
 
-    const productImage = document.createElement("img")
-    const seals = document.createElement("div")
-    const name = document.createElement("h3")
-    const details = document.createElement("span")
-    const priceWrapper = document.createElement("div")
-    const price = document.createElement("span")
-    const priceDetails = document.createElement("span")
-    const button = document.createElement("button")
+    const productImage = document.createElement("img");
+    const seals = document.createElement("div");
+    const name = document.createElement("h3");
+    const details = document.createElement("span");
+    const priceWrapper = document.createElement("div");
+    const price = document.createElement("span");
+    const priceDetails = document.createElement("span");
+    const button = document.createElement("button");
 
     //* CONTAINER
-    containerProduct.classList.add("shelf__product")
+    containerProduct.classList.add("shelf__product");
 
     //* IMG
-    productImage.classList.add("shelf__product--img")
-    productImage.src = product.image
-    productImage.alt = product.title
-    
+    productImage.classList.add("shelf__product--img");
+    productImage.src = product.image;
+    productImage.alt = product.title;
+
     //* SEALS
-    seals.classList.add("shelf__product--seals")
-    seals.textContent = product.category
+    seals.classList.add("shelf__product--seals");
+    seals.textContent = product.category;
 
     //* PRODUCT NAME
-    name.classList.add("shelf__product--title")
-    name.textContent = product.title
+    name.classList.add("shelf__product--title");
+    name.textContent = product.title;
 
     //* PRODUCT DETAILS
-    details.classList.add("shelf__product--details")
-    details.textContent = "9,73mm x 9,63mm"
+    details.classList.add("shelf__product--details");
+    details.textContent = "9,73mm x 9,63mm";
 
     //* WRAPPER
-    priceWrapper.classList.add("shelf__product--wrap")
-    
+    priceWrapper.classList.add("shelf__product--wrap");
+
     //* PRICE
-    price.classList.add("shelf__product--price")
-    price.textContent = Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(product.price)
+    price.classList.add("shelf__product--price");
+    price.textContent = Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(product.price);
 
     //* PRICE DETAILS
-    priceDetails.classList.add("shelf__product--buy-details")
-    priceDetails.textContent = "Compre em até 8x sem juros"
+    priceDetails.classList.add("shelf__product--buy-details");
+    priceDetails.textContent = "Compre em até 8x sem juros";
 
     //* BUTTON
-    button.classList.add("shelf__product--button")
-    button.textContent = "Comprar"
+    button.classList.add("shelf__product--button");
+    button.textContent = "Comprar";
 
-    priceWrapper.appendChild(price) 
-    priceWrapper.appendChild(priceDetails) 
-    priceWrapper.appendChild(button) 
+    priceWrapper.appendChild(price);
+    priceWrapper.appendChild(priceDetails);
+    priceWrapper.appendChild(button);
 
+    containerProduct.appendChild(productImage);
+    containerProduct.appendChild(seals);
+    containerProduct.appendChild(name);
+    containerProduct.appendChild(details);
+    containerProduct.appendChild(priceWrapper);
 
-    containerProduct.appendChild(productImage) 
-    containerProduct.appendChild(seals) 
-    containerProduct.appendChild(name) 
-    containerProduct.appendChild(details) 
-    containerProduct.appendChild(priceWrapper) 
+    $productsShelfSlick.appendChild(containerProduct);
+  });
 
-    $productsShelfSlick.appendChild(containerProduct) 
-  })
-
-  secondSlickShelf()
+  secondSlickShelf();
 }
 
 function constructThirdShelf(products) {
-  const $productsShelfSlick = document.querySelector(".product-highlights__products")
-  products.map(function (product){
-    const containerProduct = document.createElement("div")
+  const $productsShelfSlick = document.querySelector(
+    ".product-highlights__products"
+  );
+  products.map(function (product) {
+    const containerProduct = document.createElement("div");
 
-    const productImage = document.createElement("img")
-    const seals = document.createElement("div")
-    const name = document.createElement("h3")
-    const details = document.createElement("span")
-    const priceWrapper = document.createElement("div")
-    const price = document.createElement("span")
-    const priceDetails = document.createElement("span")
-    const button = document.createElement("button")
+    const productImage = document.createElement("img");
+    const seals = document.createElement("div");
+    const name = document.createElement("h3");
+    const details = document.createElement("span");
+    const priceWrapper = document.createElement("div");
+    const price = document.createElement("span");
+    const priceDetails = document.createElement("span");
+    const button = document.createElement("button");
 
     //* CONTAINER
-    containerProduct.classList.add("shelf__product")
+    containerProduct.classList.add("shelf__product");
 
     //* IMG
-    productImage.classList.add("shelf__product--img")
-    productImage.src = product.image
-    productImage.alt = product.title
-    
+    productImage.classList.add("shelf__product--img");
+    productImage.src = product.image;
+    productImage.alt = product.title;
+
     //* SEALS
-    seals.classList.add("shelf__product--seals")
-    seals.textContent = product.category
+    seals.classList.add("shelf__product--seals");
+    seals.textContent = product.category;
 
     //* PRODUCT NAME
-    name.classList.add("shelf__product--title")
-    name.textContent = product.title
+    name.classList.add("shelf__product--title");
+    name.textContent = product.title;
 
     //* PRODUCT DETAILS
-    details.classList.add("shelf__product--details")
-    details.textContent = "9,73mm x 9,63mm"
+    details.classList.add("shelf__product--details");
+    details.textContent = "9,73mm x 9,63mm";
 
     //* WRAPPER
-    priceWrapper.classList.add("shelf__product--wrap")
-    
+    priceWrapper.classList.add("shelf__product--wrap");
+
     //* PRICE
-    price.classList.add("shelf__product--price")
-    price.textContent = Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(product.price)
+    price.classList.add("shelf__product--price");
+    price.textContent = Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(product.price);
 
     //* PRICE DETAILS
-    priceDetails.classList.add("shelf__product--buy-details")
-    priceDetails.textContent = "Compre em até 8x sem juros"
+    priceDetails.classList.add("shelf__product--buy-details");
+    priceDetails.textContent = "Compre em até 8x sem juros";
 
     //* BUTTON
-    button.classList.add("shelf__product--button")
-    button.textContent = "Comprar"
+    button.classList.add("shelf__product--button");
+    button.textContent = "Comprar";
 
-    priceWrapper.appendChild(price) 
-    priceWrapper.appendChild(priceDetails) 
-    priceWrapper.appendChild(button) 
+    priceWrapper.appendChild(price);
+    priceWrapper.appendChild(priceDetails);
+    priceWrapper.appendChild(button);
 
+    containerProduct.appendChild(productImage);
+    containerProduct.appendChild(seals);
+    containerProduct.appendChild(name);
+    containerProduct.appendChild(details);
+    containerProduct.appendChild(priceWrapper);
 
-    containerProduct.appendChild(productImage) 
-    containerProduct.appendChild(seals) 
-    containerProduct.appendChild(name) 
-    containerProduct.appendChild(details) 
-    containerProduct.appendChild(priceWrapper) 
+    $productsShelfSlick.appendChild(containerProduct);
+  });
 
-    $productsShelfSlick.appendChild(containerProduct) 
-  })
-
-  thirdSlickShelf()
+  thirdSlickShelf();
 }
 
 function requestProducts() {
-  fetch('https://fakestoreapi.com/products').then( function (response) {
-    return response.json()
-  }).then( function (json) {
-    constructShelf(json)
-    constructSecondShelf(json)
-    constructThirdShelf(json)
-  })
+  fetch("https://fakestoreapi.com/products")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (json) {
+      constructShelf(json);
+      constructSecondShelf(json);
+      constructThirdShelf(json);
+    });
 }
 
-requestProducts()
+requestProducts();
 //#endregion
 
 //#region //** SLICK */
-function slickBanner(){
-  $('.highlight-banner__wrapper').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
+function slickBanner() {
+  $(document).ready(function () {
+    $(".highlight-banner__wrapper").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+    });
   });
 }
 
-slickBanner()
+slickBanner();
 
-function slickStones(){
-  $('.stones__items').slick({
-    slidesToShow: 7,
-    slidesToScroll: 7,
-    dots: true,
-    arrows:false,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 5,
-        }
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-        }
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-    ]
+function slickStones() {
+  $(document).ready(function () {
+    $(".stones__items").slick({
+      slidesToShow: 7,
+      slidesToScroll: 7,
+      dots: true,
+      arrows: false,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 5,
+          },
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 4,
+          },
+        },
+        {
+          breakpoint: 500,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+      ],
+    });
   });
 }
 
-slickStones()
+slickStones();
 
-function slickMainBanner(){
-  $('.main-banner__container-image--wrapper').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
+function slickMainBanner() {
+  $(document).ready(function () {
+    $(".main-banner__container-image--wrapper").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: true,
+    });
   });
 }
 
-slickMainBanner()
+slickMainBanner();
 
 //#region //**INSTAGRAM */
 function constructInstafedd(photos) {
-  const instaContainer = document.querySelector(".instafeed__photos")
+  const instaContainer = document.querySelector(".instafeed__photos");
 
   photos.map((photo) => {
     const instaImageContainer = document.createElement("span");
     const instaImage = document.createElement("img");
 
-    instaImageContainer.classList.add("instafeed__photos--item")
+    instaImageContainer.classList.add("instafeed__photos--item");
     instaImageContainer.style.backgroundImage = "url(" + photo.mediaUrl + ")";
 
     instaImage.src = photo.mediaUrl;
 
-    instaContainer.appendChild(instaImageContainer)
-  })
-}
-
-function instafeed() {
-  fetch('https://feeds.behold.so/vjD34JOXZEZkccGfIKJs')
-  .then(data => data.json())
-  .then(photos => {
-    constructInstafedd(photos)
+    instaContainer.appendChild(instaImageContainer);
   });
 }
 
-instafeed()
+function instafeed() {
+  fetch("https://feeds.behold.so/vjD34JOXZEZkccGfIKJs")
+    .then((data) => data.json())
+    .then((photos) => {
+      constructInstafedd(photos);
+    });
+}
+
+instafeed();
 //#endregion
