@@ -4,12 +4,8 @@ Project developed during the HallToCode course.
 
 Project to develop a dynamic and responsive e-commerce.
 
-<h3>📑 I'm developing to improve these concepts:</h3>
-- HTML; </br>
-- CSS;</br>
-- SCSS;</br>
-- JavaScript;</br>
-- APIs.</br>
+<h3>📑 Development:</h3>
+I'm developing this E-commerce project to learn how to apply APIs and deepen my knowledge of HTML, CSS, SCSS and Javascript applied to a dynamic and responsive layout.
 
  <h3> Check how it is so far ⤵️</h3>
  
