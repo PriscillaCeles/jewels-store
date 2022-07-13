@@ -675,13 +675,12 @@ requestProducts();
 
 //#region //** SLICK */
 function slickBanner() {
-  $(document).ready(function () {
+
     $(".highlight-banner__wrapper").slick({
       slidesToShow: 1,
       slidesToScroll: 1,
       dots: true,
     });
-  });
 }
 
 slickBanner();
